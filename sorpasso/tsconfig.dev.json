@@ -1,5 +1,7 @@
 {
-  "include": [
-    ".eslintrc.js"
-  ]
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": ["src/**/*.ts", "src/**/*.vue", "functions/src/**/*.ts"]
 }

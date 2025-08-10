@@ -11,6 +11,7 @@
     "moduleDetection": "force",
     "noEmit": true,
     "jsx": "preserve",
+    "types": ["@vueuse/head"],
 
     /* Linting */
     "strict": true,
