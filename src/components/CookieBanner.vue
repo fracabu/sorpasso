@@ -41,9 +41,9 @@ onMounted(() => {
     class="fixed bottom-0 left-0 right-0 z-50 transition-transform duration-300 ease-in-out"
     :class="{ 'translate-y-0': isVisible, 'translate-y-full': !isVisible }"
   >
-    <div class="bg-zinc-900/95 backdrop-blur-sm border-t border-zinc-700 p-4 md:p-6">
+    <div class="bg-zinc-900/95 backdrop-blur-sm border-t border-zinc-700 p-3 md:p-4">
       <div class="container mx-auto max-w-6xl">
-        <div class="flex flex-col lg:flex-row items-start lg:items-center gap-4">
+        <div class="flex flex-col md:flex-row items-start md:items-center gap-3 md:gap-4">
           <!-- Contenuto del banner -->
           <div class="flex-1">
             <div class="flex items-start gap-3">
@@ -53,7 +53,7 @@ onMounted(() => {
                 </svg>
               </div>
               <div class="text-white">
-                <p class="text-sm md:text-base leading-relaxed">
+                <p class="text-xs sm:text-sm md:text-base leading-relaxed">
                   <strong>Utilizzo dei Cookie:</strong> Questo sito utilizza cookie tecnici necessari per il funzionamento 
                   (selezione lingua, autenticazione admin) e servizi di terze parti (Firebase). 
                   <router-link to="/cookie-policy" class="text-red-400 hover:text-red-300 underline">
@@ -69,16 +69,16 @@ onMounted(() => {
           </div>
 
           <!-- Pulsanti di azione -->
-          <div class="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
+          <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full md:w-auto">
             <button
               @click="rejectCookies"
-              class="px-4 py-2 text-sm font-medium text-zinc-300 hover:text-white border border-zinc-600 hover:border-zinc-500 rounded-lg transition-colors"
+              class="px-3 py-2 text-xs sm:text-sm font-medium text-zinc-300 hover:text-white border border-zinc-600 hover:border-zinc-500 rounded-lg transition-colors"
             >
               Solo necessari
             </button>
             <button
               @click="acceptCookies"
-              class="px-6 py-2 text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors"
+              class="px-4 py-2 text-xs sm:text-sm font-medium text-white bg-red-600 hover:bg-red-700 rounded-lg transition-colors"
             >
               Accetta tutti
             </button>
