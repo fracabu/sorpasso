@@ -36,7 +36,7 @@ const handleLogin = async () => {
     const cred = await signInWithEmailAndPassword(auth, email.value, password.value)
 
     // controllo email admin
-    if (cred.user.email !== 'ilsorpassodilorenzobasile@gmail.com') {
+    if (cred.user.email !== 'fracabu@gmail.com') {
       // non autorizzato: logout e messaggio
       await signOut(auth)
       error.value = 'Accesso non autorizzato'
