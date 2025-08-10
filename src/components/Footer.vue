@@ -2,9 +2,9 @@
   <footer class="bg-zinc-950 text-white pt-16 pb-8">
     <div class="container">
       <!-- Main Footer Content -->
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-12 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-12 mb-12">
         <!-- Brand Column -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-1 lg:col-span-4">
           <a 
             href="#" 
             class="inline-block mb-6"
@@ -46,7 +46,7 @@
         <div 
           v-for="section in sections" 
           :key="section.title"
-          class="md:col-span-2"
+          class="md:col-span-1 lg:col-span-2"
         >
           <h3 class="text-lg font-bold text-white mb-4">{{ section.title }}</h3>
           <ul class="space-y-2">
@@ -62,7 +62,7 @@
         </div>
 
         <!-- Contact Information -->
-        <div class="md:col-span-4">
+        <div class="md:col-span-2 lg:col-span-2">
           <h3 class="text-lg font-bold text-white mb-4">{{ t('footer.contacts') }}</h3>
           <div class="space-y-2 text-zinc-400">
             <p class="font-semibold text-white">{{ companyInfo.name }}</p>
@@ -130,6 +130,13 @@ const sections = computed(() => [
       { text: t('nav.why'), href: '#perche-noi' },
       { text: t('nav.tour'), href: '#tour' },
       { text: t('nav.contact'), href: '#contattaci' }
+    ]
+  },
+  {
+    title: 'Informazioni Legali',
+    links: [
+      { text: 'Privacy Policy', href: '/privacy' },
+      { text: 'Cookie Policy', href: '/cookie' }
     ]
   }
 ])

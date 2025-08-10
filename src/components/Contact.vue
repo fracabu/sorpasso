@@ -179,37 +179,7 @@ const handleSubmit = async (e: Event) => {
             </div>
           </div>
 
-          <!-- Debug (solo DEV) -->
-          <div v-if="isDev" class="mb-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
-            <h4 class="text-blue-200 font-medium mb-2">🔧 Debug Info (DEV)</h4>
-            <div class="text-blue-300 text-sm space-y-1">
-              <p><strong>Project ID:</strong> {{ firebaseProjectId }}</p>
-              <p><strong>App ID:</strong> {{ firebaseAppId }}</p>
-              <p><strong>Env:</strong> {{ envMode }}</p>
-            </div>
-          </div>
 
-          <!-- Info Sistema Email -->
-          <div class="mb-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-lg">
-            <div class="flex items-start">
-              <svg class="w-5 h-5 text-blue-400 mr-3 mt-0.5 flex-shrink-0" viewBox="0 0 20 20" fill="currentColor">
-                <path fill-rule="evenodd"
-                      d="M18 10a8 8 0 11-16 0 8 8 
-                         0 0116 0zm-7-4a1 1 0 11-2 
-                         0 1 1 0 012 0zM9 9a1 1 0 000 
-                         2v3a1 1 0 001 1h1a1 1 0 
-                         100-2v-3a1 1 0 00-1-1H9z"
-                      clip-rule="evenodd"/>
-              </svg>
-              <div>
-                <p class="text-blue-400 font-medium">📧 Sistema Email Automatico</p>
-                <p class="text-blue-300 text-sm mt-1">
-                  Quando invii, Firestore registra la richiesta e un trigger esterno
-                  invierà l'email a Lorenzo.
-                </p>
-              </div>
-            </div>
-          </div>
 
           <!-- Form -->
           <form @submit="handleSubmit" class="space-y-6">
@@ -295,7 +265,7 @@ const handleSubmit = async (e: Event) => {
                        focus:ring-red-500 focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <label for="privacy" class="text-sm text-zinc-300 leading-relaxed">
-                Accetto l'informativa sulla privacy e autorizzo il trattamento dei miei dati personali
+                Accetto l'<router-link to="/privacy" class="text-red-400 hover:underline" target="_blank">informativa sulla privacy</router-link> e autorizzo il trattamento dei miei dati personali
                 per rispondere alla mia richiesta. *
               </label>
             </div>
@@ -321,17 +291,6 @@ const handleSubmit = async (e: Event) => {
             </button>
           </form>
 
-          <!-- Contatti alternativi -->
-          <div class="mt-8 p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
-            <h4 class="text-green-200 font-medium mb-2">📞 Contatto Diretto</h4>
-            <p class="text-green-300 text-sm">Se preferisci, contatta Lorenzo direttamente:</p>
-            <div class="mt-2 space-y-1 text-green-200 text-sm">
-              <p>📧 <a href="mailto:ilsorpassodilorenzobasile@gmail.com" class="hover:underline">
-                ilsorpassodilorenzobasile@gmail.com
-              </a></p>
-              <p>📱 <a href="tel:+393473952838" class="hover:underline">+39 347 395 2838</a></p>
-            </div>
-          </div>
         </div>
 
         <!-- Info di contatto -->

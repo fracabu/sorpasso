@@ -7,6 +7,7 @@ import WhyUs from '../components/WhyUs.vue'
 import Contact from '../components/Contact.vue'
 import Footer from '../components/Footer.vue'
 import FloatingWhatsApp from '../components/FloatingWhatsApp.vue'
+import CookieBanner from '../components/CookieBanner.vue'
 </script>
 
 <template>
@@ -21,5 +22,6 @@ import FloatingWhatsApp from '../components/FloatingWhatsApp.vue'
       <FloatingWhatsApp />
     </main>
     <Footer />
+    <CookieBanner />
   </div>
 </template>

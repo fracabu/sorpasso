@@ -13,6 +13,8 @@ import MezziSpeciali from '../views/services/MezziSpeciali.vue';
 import MareAria from '../views/services/MareAria.vue';
 import Personalizzazione from '../views/services/Personalizzazione.vue';
 import AutoMatrimoni from '../views/services/AutoMatrimoni.vue';
+import Privacy from '../views/Privacy.vue';
+import Cookie from '../views/Cookie.vue';
 
 // Auth guard con Firebase
 const requireAuth = (to: any, from: any, next: any) => {
@@ -89,6 +91,16 @@ const router = createRouter({
       path: '/servizi/auto-matrimoni',
       name: 'auto-matrimoni',
       component: AutoMatrimoni,
+    },
+    {
+      path: '/privacy-policy',
+      name: 'privacy',
+      component: Privacy,
+    },
+    {
+      path: '/cookie-policy',
+      name: 'cookie',
+      component: Cookie,
     },
     {
       // catch-all per rotte non definite
