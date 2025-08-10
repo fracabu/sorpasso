@@ -15,9 +15,11 @@ Il Sorpasso is a Vue 3 landing page for a luxury car rental service with integra
 
 **Firebase Functions:**
 - `cd functions && npm run build` - Compile TypeScript functions
+- `cd functions && npm run build:watch` - Compile with watch mode for development
 - `cd functions && npm run serve` - Start local emulator
 - `cd functions && npm run deploy` - Deploy functions to Firebase
 - `cd functions && npm run lint` - Lint functions code
+- `cd functions && npm run logs` - View function logs
 
 **Type Checking:**
 - `npx vue-tsc --noEmit` - Check TypeScript types for Vue files
@@ -44,7 +46,8 @@ Il Sorpasso is a Vue 3 landing page for a luxury car rental service with integra
 ### Firebase Integration
 - **Firestore** for storing contact form submissions
 - **Firebase Auth** for admin authentication (restricted to specific email)
-- **Cloud Functions** for sending contact emails via Nodemailer
+- **Cloud Functions** for sending contact emails via Nodemailer (Node.js 18 runtime)
+- **Firebase Hosting** for SPA deployment with automatic routing
 - Config loaded from environment variables (`VITE_FIREBASE_*`)
 
 ### Routing
