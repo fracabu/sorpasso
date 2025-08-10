@@ -120,25 +120,18 @@ const handleSubmit = async (e: Event) => {
 </script>
 
 <template>
-  <section id="contattaci" class="relative min-h-screen flex items-center justify-center py-20">
-    <!-- Background -->
-    <div class="absolute inset-0 z-0">
-      <img 
-        src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2000" 
-        alt="Background" 
-        class="w-full h-full object-cover"
-      />
-      <div class="absolute inset-0 bg-black/90"></div>
-    </div>
-
+  <section id="contattaci" class="relative bg-black flex items-center py-6">
     <div class="container relative z-10">
-      <div class="max-w-2xl mx-auto">
-        <div class="text-center mb-12" data-aos="fade-up">
-          <h2 class="text-4xl md:text-5xl font-bold mb-4">{{ t('contact.title') }}</h2>
-          <p class="text-xl text-zinc-400">{{ t('contact.subtitle') }}</p>
+      <!-- Layout a tre colonne -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
+        <!-- Prima colonna: Testo introduttivo -->
+        <div class="flex flex-col justify-center" data-aos="fade-up">
+          <h2 class="text-3xl font-bold mb-4">Contattaci</h2>
+          <p class="text-zinc-400 text-lg">Compilando il form descrivendoci il tuo progetto o per chiedere qualsiasi informazione sul noleggio dei mezzi.</p>
         </div>
 
-        <div class="bg-zinc-900/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
+        <!-- Seconda colonna: Form -->
+        <div class="bg-zinc-900/80 backdrop-blur-sm rounded-2xl p-4 shadow-2xl" data-aos="fade-up" data-aos-delay="200">
           <!-- Successo -->
           <div v-if="success" class="success-message mb-6 p-4 bg-green-600/20 border border-green-500/30 rounded-lg">
             <div class="flex items-center">
@@ -182,9 +175,9 @@ const handleSubmit = async (e: Event) => {
 
 
           <!-- Form -->
-          <form @submit="handleSubmit" class="space-y-6">
+          <form @submit="handleSubmit" class="space-y-4">
             <!-- Nome / Cognome -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div>
                 <label for="name" class="block text-sm font-medium text-zinc-300 mb-2">Nome *</label>
                 <input
@@ -194,9 +187,9 @@ const handleSubmit = async (e: Event) => {
                   required
                   :disabled="loading"
                   autocomplete="given-name"
-                  class="w-full px-4 py-3 bg-zinc-800/50 border border-zinc-700 rounded-lg 
+                  class="w-full px-3 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg 
                          text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 
-                         disabled:opacity-50 disabled:cursor-not-allowed"
+                         disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                   placeholder="Il tuo nome"
                 />
               </div>
@@ -208,9 +201,9 @@ const handleSubmit = async (e: Event) => {
                   type="text"
                   :disabled="loading"
                   autocomplete="family-name"
-                  class="w-full px-4 py-3 bg-zinc-800/50 border border-zinc-700 rounded-lg
+                  class="w-full px-3 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg
                          text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 
-                         disabled:opacity-50 disabled:cursor-not-allowed"
+                         disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                   placeholder="Il tuo cognome"
                 />
               </div>
@@ -226,9 +219,9 @@ const handleSubmit = async (e: Event) => {
                 required
                 :disabled="loading"
                 autocomplete="email"
-                class="w-full px-4 py-3 bg-zinc-800/50 border border-zinc-700 rounded-lg
+                class="w-full px-3 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg
                        text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 
-                       disabled:opacity-50 disabled:cursor-not-allowed"
+                       disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                 placeholder="La tua email"
               />
             </div>
@@ -239,12 +232,12 @@ const handleSubmit = async (e: Event) => {
               <textarea
                 id="message"
                 v-model="form.message"
-                rows="6"
+                rows="3"
                 required
                 :disabled="loading"
-                class="w-full px-4 py-3 bg-zinc-800/50 border border-zinc-700 rounded-lg
+                class="w-full px-3 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg
                        text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 
-                       resize-none disabled:opacity-50 disabled:cursor-not-allowed"
+                       resize-none disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                 placeholder="Descrivi il tuo progetto o la tua richiesta..."
               ></textarea>
               <div class="flex justify-between mt-2 text-sm text-zinc-400">
@@ -275,7 +268,7 @@ const handleSubmit = async (e: Event) => {
               type="submit"
               :disabled="loading || !form.privacy_accepted"
               class="w-full bg-gradient-to-r from-red-600 to-red-700 
-                     hover:from-red-700 hover:to-red-800 text-white font-semibold py-4 px-6 
+                     hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 px-6 
                      rounded-lg transition-all duration-200 transform hover:scale-[1.02] 
                      focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 
                      focus:ring-offset-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed"
@@ -290,11 +283,10 @@ const handleSubmit = async (e: Event) => {
               <span v-else>📧 Invia Richiesta</span>
             </button>
           </form>
-
         </div>
 
-        <!-- Info di contatto -->
-        <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8" data-aos="fade-up" data-aos-delay="400">
+        <!-- Terza colonna: Info contatto -->
+        <div class="flex flex-col justify-center items-center space-y-6" data-aos="fade-up" data-aos-delay="400">
           <!-- Telefono -->
           <div class="text-center">
             <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
