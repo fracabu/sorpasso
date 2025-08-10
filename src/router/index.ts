@@ -19,7 +19,7 @@ const requireAuth = (to: any, from: any, next: any) => {
   const unsubscribe = onAuthStateChanged(auth, user => {
     unsubscribe();
 
-    if (!user || user.email !== 'ilsorpassodilorenzobasile@gmail.com') {
+    if (!user || user.email !== 'fracabu@gmail.com') {
       signOut(auth).catch(console.error);
       return next('/admin/login');
     }
