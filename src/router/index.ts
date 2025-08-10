@@ -32,6 +32,14 @@ const requireAuth = (to: any, from: any, next: any) => {
 
 const router = createRouter({
   history: createWebHistory(),
+  scrollBehavior(to, from, savedPosition) {
+    // Se c'è una posizione salvata (tornando indietro), usa quella
+    if (savedPosition) {
+      return savedPosition;
+    }
+    // Altrimenti, scroll al top della pagina
+    return { top: 0 };
+  },
   routes: [
     {
       path: '/',

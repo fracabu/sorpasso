@@ -125,9 +125,13 @@ const handleSubmit = async (e: Event) => {
       <!-- Layout a tre colonne -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
         <!-- Prima colonna: Testo introduttivo -->
-        <div class="flex flex-col justify-center" data-aos="fade-up">
-          <h2 class="text-3xl font-bold mb-4">Contattaci</h2>
-          <p class="text-zinc-400 text-lg">Compilando il form descrivendoci il tuo progetto o per chiedere qualsiasi informazione sul noleggio dei mezzi.</p>
+        <div class="relative flex flex-col justify-center bg-cover bg-center bg-no-repeat rounded-2xl p-8 min-h-[400px]"
+             style="background-image: url('/bg-col1.png')" data-aos="fade-up">
+          <div class="absolute inset-0 bg-black/60 rounded-2xl"></div>
+          <div class="relative z-10">
+            <h2 class="text-3xl font-bold mb-4 text-white">Contattaci</h2>
+            <p class="text-zinc-200 text-lg">Compilando il form descrivendoci il tuo progetto o per chiedere qualsiasi informazione sul noleggio dei mezzi.</p>
+          </div>
         </div>
 
         <!-- Seconda colonna: Form -->
@@ -286,7 +290,10 @@ const handleSubmit = async (e: Event) => {
         </div>
 
         <!-- Terza colonna: Info contatto -->
-        <div class="flex flex-col justify-center items-center space-y-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="relative flex flex-col justify-center items-center space-y-6 bg-cover bg-center bg-no-repeat rounded-2xl p-8 min-h-[400px]"
+             style="background-image: url('img-col3.png')" data-aos="fade-up" data-aos-delay="400">
+          <div class="absolute inset-0 bg-black/60 rounded-2xl"></div>
+          <div class="relative z-10 flex flex-col justify-center items-center space-y-6">
           <!-- Telefono -->
           <div class="text-center">
             <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -298,8 +305,8 @@ const handleSubmit = async (e: Event) => {
                          0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold mb-2">Telefono</h3>
-            <p class="text-zinc-400">+39 347 395 2838</p>
+            <h3 class="text-lg font-semibold mb-2 text-white">Telefono</h3>
+            <p class="text-zinc-200">+39 347 395 2838</p>
           </div>
           <!-- Email -->
           <div class="text-center">
@@ -311,8 +318,8 @@ const handleSubmit = async (e: Event) => {
                          0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold mb-2">Email</h3>
-            <p class="text-zinc-400">ilsorpassodilorenzobasile@gmail.com</p>
+            <h3 class="text-lg font-semibold mb-2 text-white">Email</h3>
+            <p class="text-zinc-200">ilsorpassodilorenzobasile@gmail.com</p>
           </div>
           <!-- Indirizzo -->
           <div class="text-center">
@@ -326,8 +333,9 @@ const handleSubmit = async (e: Event) => {
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold mb-2">Indirizzo</h3>
-            <p class="text-zinc-400">Via Suor Celestina Donati 90<br>00167 Roma, Italia</p>
+            <h3 class="text-lg font-semibold mb-2 text-white">Indirizzo</h3>
+            <p class="text-zinc-200">Via Suor Celestina Donati 90<br>00167 Roma, Italia</p>
+          </div>
           </div>
         </div>
       </div>

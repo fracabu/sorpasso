@@ -21,8 +21,10 @@ Il Sorpasso is a Vue 3 landing page for a luxury car rental service with integra
 - `cd functions && npm run lint` - Lint functions code
 - `cd functions && npm run logs` - View function logs
 
-**Type Checking:**
+**Linting & Type Checking:**
 - `npx vue-tsc --noEmit` - Check TypeScript types for Vue files
+- `npx vue-tsc --noEmit --project tsconfig.app.json` - Check app-specific TypeScript configuration
+- `cd functions && npm run lint` - Lint functions code
 
 ## Architecture
 
@@ -69,8 +71,9 @@ Admin routes are protected with Firebase Auth guard that only allows access to `
 
 ### Styling
 - TailwindCSS with custom configuration
-- Custom fonts: Inter (sans), Playfair Display (serif)
+- Custom fonts: Inter (sans), Playfair Display (serif) 
 - Typography plugin enabled
+- Custom accent color: #DC2626 (red)
 - Responsive design with mobile-first approach
 
 ## Environment Variables Required
@@ -85,4 +88,14 @@ VITE_FIREBASE_MEASUREMENT_ID
 ```
 
 ## Deployment
-Project is configured for Firebase Hosting with automatic SPA routing. Functions are deployed separately to Firebase Cloud Functions with Node.js 18 runtime.
+Project supports multiple deployment options:
+
+**Firebase Hosting:**
+- Primary deployment target with automatic SPA routing via `firebase.json`
+- Functions deployed separately to Firebase Cloud Functions with Node.js 18 runtime
+- Use `firebase deploy` after building the project
+
+**Vercel:**
+- Alternative deployment option configured via `vercel.json`  
+- SPA routing handled by rewrites to `/index.html`
+- Automatic deployment from git repository
