@@ -10,7 +10,7 @@
             class="inline-block mb-6"
           >
             <img 
-              src="/logo il sorpasso definitivo.png" 
+              src="/logo_il_sorpasso_testo_destra.png" 
               alt="Il Sorpasso - Picture Vehicles of Rome" 
               class="h-40 w-auto"
             />

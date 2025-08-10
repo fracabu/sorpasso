@@ -114,12 +114,13 @@ const headerLinks = computed(() => [
         <!-- Logo -->
         <button 
           @click="goToHome"
-          class="flex items-center hover:opacity-80 transition-opacity"
+          class="flex items-center justify-center hover:opacity-80 transition-opacity h-full"
         >
           <img 
-            src="/logo il sorpasso definitivo.png" 
+            src="/logo_il_sorpasso_testo_destra.png" 
             alt="Il Sorpasso - Picture Vehicles of Rome" 
-            class="h-36 w-auto md:h-40"
+            class="h-36 w-auto md:h-40 object-contain"
+            style="object-position: center;"
           />
         </button>
 

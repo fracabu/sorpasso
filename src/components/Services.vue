@@ -83,7 +83,7 @@ const navigateToService = (route: string) => {
 
 <template>
   <!-- Services Section -->
-  <section id="servizi" class="min-h-screen flex items-center justify-center py-20">
+  <section id="servizi" class="bg-black flex items-center">
     <div class="container">
       <h2 
         class="text-4xl md:text-5xl font-bold mb-16 text-center"
@@ -92,53 +92,80 @@ const navigateToService = (route: string) => {
         {{ t('services.title') }}
       </h2>
       
-      <!-- Noleggio Mezzi di Scena -->
-      <div class="mb-20">
-        <h3 
-          class="text-3xl font-bold mb-8 text-center text-accent"
-          data-aos="fade-up"
+      <!-- Carosello servizi -->
+      <div data-aos="fade-up" data-aos-delay="200">
+        <swiper
+          :modules="[Autoplay, Navigation, Pagination]"
+          :slides-per-view="1"
+          :breakpoints="{
+            '640': {
+              slidesPerView: 2,
+              spaceBetween: 20
+            },
+            '1024': {
+              slidesPerView: 3,
+              spaceBetween: 30
+            }
+          }"
+          :space-between="30"
+          :navigation="true"
+          :pagination="{ clickable: true }"
+          :autoplay="{
+            delay: 3000,
+            disableOnInteraction: false
+          }"
+          class="services-swiper"
         >
-          {{ t('services.rental.title') }}
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          <div 
-            v-for="(category, index) in vehicleCategories" 
+          <swiper-slide 
+            v-for="category in vehicleCategories" 
             :key="category.title"
-            @click="navigateToService(category.route)"
-            class="relative group cursor-pointer overflow-hidden rounded-lg h-[250px]"
-            data-aos="fade-up"
-            :data-aos-delay="100 * index"
+            class="pb-12"
           >
-            <!-- Background Image -->
-            <img 
-              :src="category.bgImage" 
-              :alt="category.title"
-              class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-            />
-            
-            <!-- Overlay -->
-            <div class="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition-colors duration-300"></div>
-            
-            <!-- Content -->
-            <div class="relative h-full p-6 flex flex-col justify-end z-10">
-              <h4 class="text-xl font-bold mb-1">{{ category.title }}</h4>
-              <p class="text-accent font-semibold mb-1 text-sm">{{ category.subtitle }}</p>
-              <p class="text-white/80 text-sm">{{ category.description }}</p>
+            <div 
+              @click="navigateToService(category.route)"
+              class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            >
+              <!-- Background Image -->
+              <div 
+                class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+                :style="{ backgroundImage: `url(${category.bgImage})` }"
+              ></div>
+              
+              <!-- Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+              
+              <!-- Card Content -->
+              <div class="relative h-full p-6 flex flex-col justify-end text-center">
+                <!-- Title -->
+                <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                  {{ category.title }}
+                </h3>
+                
+                <!-- Subtitle -->
+                <p class="text-accent font-semibold mb-2 text-sm">{{ category.subtitle }}</p>
+                
+                <!-- Description -->
+                <p class="text-white/80 text-sm">
+                  {{ category.description }}
+                </p>
+              </div>
             </div>
-          </div>
-        </div>
+          </swiper-slide>
+        </swiper>
       </div>
+    </div>
+  </section>
 
-      <!-- Tour in Italia -->
-      <section id="tour" class="min-h-screen flex items-center justify-center">
-        <div class="w-full">
-          <h3 
-            class="text-3xl font-bold mb-8 text-center text-accent"
-            data-aos="fade-up"
-          >
-            {{ t('services.tour.title') }}
-          </h3>
-          <div data-aos="fade-up" data-aos-delay="200">
+  <!-- Tour in Italia -->
+  <section id="tour" class="bg-black flex items-center">
+    <div class="container">
+      <h2 
+        class="text-4xl md:text-5xl font-bold mb-16 text-center"
+        data-aos="fade-up"
+      >
+        {{ t('services.tour.title') }}
+      </h2>
+      <div data-aos="fade-up" data-aos-delay="200">
             <swiper
               :modules="[Autoplay, Navigation, Pagination]"
               :slides-per-view="1"
@@ -166,7 +193,7 @@ const navigateToService = (route: string) => {
                 :key="image.title"
                 class="pb-12"
               >
-                <div class="relative group overflow-hidden rounded-lg h-[300px]">
+                <div class="relative group overflow-hidden rounded-lg h-[200px] md:h-[240px]">
                   <img 
                     :src="image.url" 
                     :alt="image.title"
@@ -179,28 +206,31 @@ const navigateToService = (route: string) => {
                 </div>
               </swiper-slide>
             </swiper>
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   </section>
 </template>
 
 <style>
-.tour-swiper {
+.tour-swiper,
+.services-swiper {
   padding-bottom: 3rem !important;
 }
 
 .tour-swiper .swiper-button-next,
-.tour-swiper .swiper-button-prev {
+.tour-swiper .swiper-button-prev,
+.services-swiper .swiper-button-next,
+.services-swiper .swiper-button-prev {
   color: #DC2626 !important;
 }
 
-.tour-swiper .swiper-pagination-bullet {
+.tour-swiper .swiper-pagination-bullet,
+.services-swiper .swiper-pagination-bullet {
   background: #DC2626 !important;
 }
 
-.tour-swiper .swiper-pagination {
+.tour-swiper .swiper-pagination,
+.services-swiper .swiper-pagination {
   bottom: 0 !important;
 }
 </style>
