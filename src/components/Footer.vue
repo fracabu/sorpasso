@@ -135,8 +135,8 @@ const sections = computed(() => [
   {
     title: 'Informazioni Legali',
     links: [
-      { text: 'Privacy Policy', href: '/privacy' },
-      { text: 'Cookie Policy', href: '/cookie' }
+      { text: 'Privacy Policy', href: '/privacy-policy' },
+      { text: 'Cookie Policy', href: '/cookie-policy' }
     ]
   }
 ])

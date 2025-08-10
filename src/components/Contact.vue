@@ -265,7 +265,7 @@ const handleSubmit = async (e: Event) => {
                        focus:ring-red-500 focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <label for="privacy" class="text-sm text-zinc-300 leading-relaxed">
-                Accetto l'<router-link to="/privacy" class="text-red-400 hover:underline" target="_blank">informativa sulla privacy</router-link> e autorizzo il trattamento dei miei dati personali
+                Accetto l'<router-link to="/privacy-policy" class="text-red-400 hover:underline" target="_blank">informativa sulla privacy</router-link> e autorizzo il trattamento dei miei dati personali
                 per rispondere alla mia richiesta. *
               </label>
             </div>
