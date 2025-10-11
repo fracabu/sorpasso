@@ -12,39 +12,67 @@ const { t } = useI18n()
 
 const vehicleCategories = [
   {
-    title: t('services.rental.categories.vintage.title'),
-    subtitle: t('services.rental.categories.vintage.subtitle'),
-    description: t('services.rental.categories.vintage.description'),
-    bgImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070",
-    route: '/servizi/auto-epoca'
+    title: t('services.categories.supercar.title'),
+    subtitle: t('services.categories.supercar.subtitle'),
+    description: t('services.categories.supercar.description'),
+    bgImage: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?q=80&w=2074",
+    route: t('services.categories.supercar.route')
   },
   {
-    title: t('services.rental.categories.special.title'),
-    subtitle: t('services.rental.categories.special.subtitle'),
-    description: t('services.rental.categories.special.description'),
-    bgImage: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=2070",
-    route: '/servizi/mezzi-speciali'
+    title: t('services.categories.tuning.title'),
+    subtitle: t('services.categories.tuning.subtitle'),
+    description: t('services.categories.tuning.description'),
+    bgImage: "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=2070",
+    route: t('services.categories.tuning.route')
   },
   {
-    title: t('services.rental.categories.sea.title'),
-    subtitle: t('services.rental.categories.sea.subtitle'),
-    description: t('services.rental.categories.sea.description'),
+    title: t('services.categories.militari.title'),
+    subtitle: t('services.categories.militari.subtitle'),
+    description: t('services.categories.militari.description'),
+    bgImage: "https://images.unsplash.com/photo-1558981359-219d6364c9c8?q=80&w=2070",
+    route: t('services.categories.militari.route')
+  },
+  {
+    title: t('services.categories.motociclette.title'),
+    subtitle: t('services.categories.motociclette.subtitle'),
+    description: t('services.categories.motociclette.description'),
+    bgImage: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070",
+    route: t('services.categories.motociclette.route')
+  },
+  {
+    title: t('services.categories.vespe.title'),
+    subtitle: t('services.categories.vespe.subtitle'),
+    description: t('services.categories.vespe.description'),
+    bgImage: "https://images.unsplash.com/photo-1558618047-3c8c76ca7ac2?q=80&w=2074",
+    route: t('services.categories.vespe.route')
+  },
+  {
+    title: t('services.categories.barche.title'),
+    subtitle: t('services.categories.barche.subtitle'),
+    description: t('services.categories.barche.description'),
     bgImage: "https://images.unsplash.com/photo-1471922694854-ff1b63b20054?q=80&w=2072",
-    route: '/servizi/mare-aria'
+    route: t('services.categories.barche.route')
   },
   {
-    title: t('services.rental.categories.custom.title'),
-    subtitle: t('services.rental.categories.custom.subtitle'),
-    description: t('services.rental.categories.custom.description'),
-    bgImage: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=2070",
-    route: '/servizi/personalizzazione'
+    title: t('services.categories.elicotteri.title'),
+    subtitle: t('services.categories.elicotteri.subtitle'),
+    description: t('services.categories.elicotteri.description'),
+    bgImage: "https://images.unsplash.com/photo-1540979388789-6cee28a1cdc9?q=80&w=2070",
+    route: t('services.categories.elicotteri.route')
   },
   {
-    title: t('services.rental.categories.wedding.title'),
-    subtitle: t('services.rental.categories.wedding.subtitle'),
-    description: t('services.rental.categories.wedding.description'),
+    title: t('services.categories.carrozze.title'),
+    subtitle: t('services.categories.carrozze.subtitle'),
+    description: t('services.categories.carrozze.description'),
     bgImage: "https://images.unsplash.com/photo-1515706886582-54c73c5eaf41?q=80&w=2070",
-    route: '/servizi/auto-matrimoni'
+    route: t('services.categories.carrozze.route')
+  },
+  {
+    title: t('services.categories.biciclette.title'),
+    subtitle: t('services.categories.biciclette.subtitle'),
+    description: t('services.categories.biciclette.description'),
+    bgImage: "https://images.unsplash.com/photo-1558618047-3c8c76ca7ac2?q=80&w=2074",
+    route: t('services.categories.biciclette.route')
   }
 ]
 
@@ -104,6 +132,10 @@ const navigateToService = (route: string) => {
             },
             '1024': {
               slidesPerView: 3,
+              spaceBetween: 30
+            },
+            '1280': {
+              slidesPerView: 4,
               spaceBetween: 30
             }
           }"

@@ -159,11 +159,17 @@ const headerLinks = computed(() => [
         <div class="md:hidden flex items-center space-x-4">
           <LanguageSelector />
           <button 
-            class="p-2 text-white hover:text-accent transition-colors"
+            class="p-3 text-white hover:text-accent transition-colors bg-black/50 rounded-lg"
             @click="toggleMenu"
             aria-label="Toggle Menu"
           >
-            <i :class="isMenuOpen ? 'fas fa-times' : 'fas fa-bars'" class="text-xl"></i>
+            <!-- Hamburger/Close SVG Icon -->
+            <svg v-if="!isMenuOpen" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg v-else class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
           </button>
         </div>
       </nav>
@@ -171,7 +177,7 @@ const headerLinks = computed(() => [
       <!-- Mobile Menu -->
       <div 
         v-show="isMenuOpen"
-        class="md:hidden absolute left-0 right-0 w-full bg-black shadow-xl border-t border-zinc-800"
+        class="md:hidden absolute left-0 right-0 w-full bg-black shadow-xl border-t border-zinc-800 z-50"
       >
         <div class="px-2 pt-2 pb-3 space-y-1">
           <a 

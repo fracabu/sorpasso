@@ -19,109 +19,99 @@
   },
   "services": {
     "title": "I Nostri Servizi",
-    "rental": {
-      "title": "Noleggio Mezzi di Scena",
-      "categories": {
-        "vintage": {
-          "title": "AUTO D'EPOCA",
-          "subtitle": "Dal 1900 ad oggi",
-          "description": "Classiche, sportive e di lusso",
-          "longDescription": "La nostra collezione di auto d'epoca spazia dal 1900 ad oggi, offrendo un'ampia gamma di veicoli per ogni esigenza cinematografica.",
-          "cars": {
-            "alfa": {
-              "title": "Alfa Romeo Vintage",
-              "description": "Eleganza e sportività italiana degli anni '60"
-            },
-            "porsche": {
-              "title": "Porsche 911 Classic",
-              "description": "L'icona delle sportive tedesche in versione classica"
-            },
-            "ferrari": {
-              "title": "Ferrari Testarossa",
-              "description": "Il mito degli anni '80 in tutta la sua gloria"
-            }
-          }
-        },
-        "special": {
-          "title": "MEZZI SPECIALI",
-          "subtitle": "Versatilità garantita",
-          "description": "Camion, furgoni e mezzi militari per ogni esigenza",
-          "longDescription": "Dalla nostra flotta di mezzi speciali, offriamo una vasta selezione di veicoli militari, camion d'epoca e furgoni storici.",
-          "vehicles": {
-            "military": {
-              "title": "Veicoli Militari",
-              "description": "Mezzi militari autentici per scene di guerra e documentari storici"
-            },
-            "trucks": {
-              "title": "Camion Vintage",
-              "description": "Camion d'epoca perfetti per scene storiche e ambientazioni retrò"
-            },
-            "vans": {
-              "title": "Furgoni Classici",
-              "description": "Furgoni vintage per dare un tocco nostalgico alle tue riprese"
-            }
-          }
-        },
-        "sea": {
-          "title": "MARE & ARIA",
-          "subtitle": "Senza limiti",
-          "description": "Barche, yacht, aerei ed elicotteri",
-          "longDescription": "Dalle barche d'epoca agli aerei storici, offriamo una selezione unica di mezzi per le tue riprese in mare e in aria.",
-          "vehicles": {
-            "yacht": {
-              "title": "Yacht d'Epoca",
-              "description": "Eleganti imbarcazioni storiche per scene marittime d'epoca"
-            },
-            "planes": {
-              "title": "Aerei Classici",
-              "description": "Velivoli storici per scene aeree e ambientazioni d'epoca"
-            },
-            "boats": {
-              "title": "Motoscafi Vintage",
-              "description": "Motoscafi classici per scene dinamiche sull'acqua"
-            }
-          }
-        },
-        "custom": {
-          "title": "PERSONALIZZAZIONE",
-          "subtitle": "Su misura",
-          "description": "Modifiche e trasformazioni per le tue scene",
-          "longDescription": "Il nostro team di esperti è in grado di modificare e personalizzare i veicoli secondo le tue esigenze specifiche.",
-          "services": {
-            "paint": {
-              "title": "Verniciatura Personalizzata",
-              "description": "Personalizzazione completa della livrea per ogni esigenza scenica"
-            },
-            "interior": {
-              "title": "Modifica Interni",
-              "description": "Ricostruzione e personalizzazione degli interni secondo periodo storico"
-            },
-            "effects": {
-              "title": "Effetti Speciali",
-              "description": "Modifiche strutturali per scene d'azione e effetti speciali"
-            }
-          }
-        },
-        "wedding": {
-          "title": "AUTO PER MATRIMONI",
-          "subtitle": "Il giorno più bello",
-          "description": "Ricerca e vendita di auto d'epoca per matrimoni",
-          "longDescription": "Realizziamo il sogno di ogni coppia trovando l'auto perfetta per il loro giorno speciale. Servizio di ricerca personalizzato e consulenza per l'acquisto.",
-          "cars": {
-            "rolls": {
-              "title": "Rolls Royce Silver Cloud",
-              "description": "L'eleganza senza tempo di Rolls Royce, perfetta per un matrimonio indimenticabile"
-            },
-            "bentley": {
-              "title": "Bentley Continental",
-              "description": "Lusso britannico e prestazioni moderne in un'auto che non passa inosservata"
-            },
-            "mercedes": {
-              "title": "Mercedes-Benz Classe S",
-              "description": "Il massimo del comfort e dell'eleganza tedesca per il vostro giorno speciale"
-            }
+    "categories": {
+      "supercar": {
+        "title": "SUPERCAR",
+        "subtitle": "Potenza e prestigio",
+        "description": "Supercar moderne e vintage per scene ad alto impatto",
+        "longDescription": "La nostra collezione di supercar include i modelli più iconici e desiderati, dalle leggendarie Ferrari e Lamborghini vintage alle McLaren e Porsche più moderne.",
+        "route": "/servizi/supercar",
+        "subcategories": {
+          "moderne": {
+            "title": "Supercar Moderne",
+            "description": "Lamborghini, Ferrari, McLaren, Porsche ultime generazioni"
+          },
+          "vintage": {
+            "title": "Supercar Vintage",
+            "description": "Ferrari Testarossa, Lamborghini Countach, Porsche 930"
           }
         }
+      },
+      "tuning": {
+        "title": "AUTO TUNING & MUSCLE CAR",
+        "subtitle": "Potenza americana",
+        "description": "Ford Mustang, Chevrolet Corvette, auto modificate e racing",
+        "longDescription": "Una selezione di muscle car americane e auto tuning per scene d'azione e ambientazioni urban. Include Ford Mustang, Chevrolet Corvette, Dodge Challenger e auto modificate.",
+        "route": "/servizi/tuning"
+      },
+      "militari": {
+        "title": "MEZZI MILITARI",
+        "subtitle": "Autenticità garantita",
+        "description": "Mezzi militari d'epoca e moderni per scene di guerra",
+        "longDescription": "Dalla Jeep Willys ai moderni Humvee, offriamo una vasta gamma di mezzi militari autentici per documentari, film di guerra e produzioni storiche.",
+        "route": "/servizi/militari",
+        "subcategories": {
+          "epoca": {
+            "title": "Mezzi Militari D'epoca",
+            "description": "Jeep Willys, Dodge WC, autocarro Lancia"
+          },
+          "moderni": {
+            "title": "Mezzi Militari Moderni",
+            "description": "Humvee, Land Rover Defender, Iveco"
+          }
+        }
+      },
+      "motociclette": {
+        "title": "MOTOCICLETTE",
+        "subtitle": "Due ruote leggendarie",
+        "description": "Moto moderne e vintage di tutti i tipi",
+        "longDescription": "Dalle Harley Davidson vintage alle moderne Ducati sportive, la nostra collezione di motociclette copre tutti gli stili e le epoche.",
+        "route": "/servizi/motociclette",
+        "subcategories": {
+          "moderne": {
+            "title": "Moto Moderne",
+            "description": "Ducati, BMW, Yamaha, Kawasaki"
+          },
+          "vintage": {
+            "title": "Moto Vintage",
+            "description": "Harley Davidson, Indian, Guzzi, Café Racer"
+          }
+        }
+      },
+      "vespe": {
+        "title": "VESPE & LAMBRETTA",
+        "subtitle": "Stile italiano",
+        "description": "Collezione completa tutti i colori e modelli",
+        "longDescription": "Una collezione completa di Vespe e Lambretta storiche in tutti i colori e modelli, simbolo dell'eleganza italiana su due ruote.",
+        "route": "/servizi/vespe"
+      },
+      "barche": {
+        "title": "BARCHE & YACHT",
+        "subtitle": "Lusso sul mare",
+        "description": "Barche d'epoca e moderne, yacht di lusso",
+        "longDescription": "Dalle eleganti barche d'epoca ai moderni yacht di lusso, offriamo imbarcazioni per scene marittime di ogni tipo.",
+        "route": "/servizi/barche"
+      },
+      "elicotteri": {
+        "title": "ELICOTTERI & AEREI",
+        "subtitle": "Volare alto",
+        "description": "Elicotteri civili e militari, aerei d'epoca e moderni",
+        "longDescription": "Una flotta di elicotteri e aerei per riprese aeree spettacolari e scene d'azione, includendo mezzi civili, militari e d'epoca.",
+        "route": "/servizi/elicotteri"
+      },
+      "carrozze": {
+        "title": "CARROZZE",
+        "subtitle": "Eleganza d'altri tempi",
+        "description": "Carrozze d'epoca e matrimoniali",
+        "longDescription": "Carrozze storiche perfettamente restaurate per scene d'epoca, matrimoni e eventi speciali che richiedono un tocco di eleganza tradizionale.",
+        "route": "/servizi/carrozze"
+      },
+      "biciclette": {
+        "title": "BICICLETTE",
+        "subtitle": "Mobilità sostenibile",
+        "description": "Bici d'epoca, vintage, moderne e speciali",
+        "longDescription": "Una vasta collezione di biciclette che spazia dalle vintage d'epoca alle moderne city bike, mountain bike, racing e bici speciali come tandem.",
+        "route": "/servizi/biciclette"
       }
     },
     "tour": {

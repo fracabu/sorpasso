@@ -12,10 +12,18 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 body {
   @apply m-0 min-h-screen bg-black text-white;
+  overflow-x: hidden;
+  width: 100%;
 }
 
 section {
@@ -84,6 +92,13 @@ section {
 
 .tour-swiper .swiper-pagination {
   bottom: 0 !important;
+}
+
+/* Prevent overflow */
+#app {
+  overflow-x: hidden;
+  width: 100%;
+  min-height: 100vh;
 }
 
 /* Page transitions */

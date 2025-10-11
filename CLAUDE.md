@@ -61,7 +61,7 @@ Il Sorpasso is a Vue 3 landing page for a luxury car rental service with integra
 - `/servizi/*` - Individual service detail pages
 
 ### Authentication
-Admin routes are protected with Firebase Auth guard that only allows access to `ilsorpassodilorenzobasile@gmail.com`.
+Admin routes are protected with Firebase Auth guard that only allows access to `fracabu@gmail.com`.
 
 ### Internationalization
 - Default locale: Italian (`it`)

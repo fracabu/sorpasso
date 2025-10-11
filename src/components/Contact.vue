@@ -13,11 +13,7 @@ import {
 
 const { t } = useI18n()
 
-// Expose environment variables for template usage
-const isDev = import.meta.env.DEV
-const firebaseProjectId = import.meta.env.VITE_FIREBASE_PROJECT_ID
-const firebaseAppId     = import.meta.env.VITE_FIREBASE_APP_ID
-const envMode           = import.meta.env.MODE
+
 
 interface ContactForm {
   name:             string
