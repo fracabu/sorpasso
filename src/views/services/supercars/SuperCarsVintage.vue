@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+  <div class="min-h-screen bg-black text-white">
     <!-- Hero Section -->
     <section class="relative h-[60vh] overflow-hidden">
       <div
@@ -36,7 +36,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
           <div
-            v-for="(photo, index) in photos"
+            v-for="(car, index) in cars"
             :key="index"
             @click="showContact = true"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -45,9 +45,15 @@
           >
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              :style="{ backgroundImage: `url('/images/Super Cars Vintage/${photo}')` }"
+              :style="{ backgroundImage: `url('/images/Super Cars Vintage/${car.photo}')` }"
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            </div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">
+                {{ car.name }}
+              </h3>
+              <p class="text-accent font-semibold text-sm">{{ car.year }}</p>
             </div>
           </div>
 
@@ -78,33 +84,33 @@ import ContactForm from '@/components/Contact.vue';
 
 const showContact = ref(false);
 
-const photos = [
-  'PHOTO-2025-07-01-15-40-46 2.jpg',
-  'PHOTO-2025-07-01-15-40-46 3.jpg',
-  'PHOTO-2025-07-01-15-40-46 4.jpg',
-  'PHOTO-2025-07-01-15-40-46 5.jpg',
-  'PHOTO-2025-07-01-15-40-46 6.jpg',
-  'PHOTO-2025-07-01-15-40-46 7.jpg',
-  'PHOTO-2025-07-01-15-40-46 8.jpg',
-  'PHOTO-2025-07-01-15-40-46.jpg',
-  'PHOTO-2025-07-01-15-41-51 10.jpg',
-  'PHOTO-2025-07-01-15-41-51 11.jpg',
-  'PHOTO-2025-07-01-15-41-51 12.jpg',
-  'PHOTO-2025-07-01-15-41-51 13.jpg',
-  'PHOTO-2025-07-01-15-41-51 14.jpg',
-  'PHOTO-2025-07-01-15-41-51 15.jpg',
-  'PHOTO-2025-07-01-15-41-51 16.jpg',
-  'PHOTO-2025-07-01-15-41-51 17.jpg',
-  'PHOTO-2025-07-01-15-41-51 18.jpg',
-  'PHOTO-2025-07-01-15-41-51 2.jpg',
-  'PHOTO-2025-07-01-15-41-51 3.jpg',
-  'PHOTO-2025-07-01-15-41-51 4.jpg',
-  'PHOTO-2025-07-01-15-41-51 5.jpg',
-  'PHOTO-2025-07-01-15-41-51 6.jpg',
-  'PHOTO-2025-07-01-15-41-51 7.jpg',
-  'PHOTO-2025-07-01-15-41-51 8.jpg',
-  'PHOTO-2025-07-01-15-41-51 9.jpg',
-  'PHOTO-2025-07-01-15-41-51.jpg'
+const cars = [
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-40-46 2.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-40-46 3.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-40-46 4.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-40-46 5.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-40-46 6.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-40-46 7.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-40-46 8.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-40-46.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-41-51 10.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-41-51 11.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-41-51 12.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-41-51 13.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-41-51 14.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-41-51 15.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-41-51 16.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-41-51 17.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-41-51 18.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-41-51 2.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-41-51 3.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-41-51 4.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-41-51 5.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-41-51 6.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-41-51 7.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-41-51 8.jpg' },
+  { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-41-51 9.jpg' },
+  { name: 'Supercar Vintage', year: '1990s', photo: 'PHOTO-2025-07-01-15-41-51.jpg' }
 ];
 
 onMounted(() => {

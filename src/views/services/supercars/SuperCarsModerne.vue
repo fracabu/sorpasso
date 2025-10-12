@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+  <div class="min-h-screen bg-black text-white">
     <!-- Hero Section -->
     <section class="relative h-[60vh] overflow-hidden">
       <div
@@ -36,7 +36,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
           <div
-            v-for="(photo, index) in photos"
+            v-for="(car, index) in cars"
             :key="index"
             @click="showContact = true"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -45,9 +45,15 @@
           >
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              :style="{ backgroundImage: `url('/images/Super Cars Moderne/${photo}')` }"
+              :style="{ backgroundImage: `url('/images/Super Cars Moderne/${car.photo}')` }"
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            </div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">
+                {{ car.name }}
+              </h3>
+              <p class="text-accent font-semibold text-sm">{{ car.year }}</p>
             </div>
           </div>
 
@@ -78,34 +84,34 @@ import ContactForm from '@/components/Contact.vue';
 
 const showContact = ref(false);
 
-const photos = [
-  'PHOTO-2025-07-01-15-36-30 2.jpg',
-  'PHOTO-2025-07-01-15-36-30 3.jpg',
-  'PHOTO-2025-07-01-15-36-30 4.jpg',
-  'PHOTO-2025-07-01-15-36-30 5.jpg',
-  'PHOTO-2025-07-01-15-36-30 6.jpg',
-  'PHOTO-2025-07-01-15-36-30 7.jpg',
-  'PHOTO-2025-07-01-15-36-30 8.jpg',
-  'PHOTO-2025-07-01-15-36-30 9.jpg',
-  'PHOTO-2025-07-01-15-36-30.jpg',
-  'PHOTO-2025-07-01-15-37-42 10.jpg',
-  'PHOTO-2025-07-01-15-37-42 11.jpg',
-  'PHOTO-2025-07-01-15-37-42 12.jpg',
-  'PHOTO-2025-07-01-15-37-42 13.jpg',
-  'PHOTO-2025-07-01-15-37-42 2.jpg',
-  'PHOTO-2025-07-01-15-37-42 3.jpg',
-  'PHOTO-2025-07-01-15-37-42 4.jpg',
-  'PHOTO-2025-07-01-15-37-42 5.jpg',
-  'PHOTO-2025-07-01-15-37-42 6.jpg',
-  'PHOTO-2025-07-01-15-37-42 7.jpg',
-  'PHOTO-2025-07-01-15-37-42 8.jpg',
-  'PHOTO-2025-07-01-15-37-42 9.jpg',
-  'PHOTO-2025-07-01-15-37-42.jpg',
-  'PHOTO-2025-07-01-15-39-24 2.jpg',
-  'PHOTO-2025-07-01-15-39-24 3.jpg',
-  'PHOTO-2025-07-01-15-39-24 4.jpg',
-  'PHOTO-2025-07-01-15-39-24.jpg',
-  'PHOTO-2025-07-01-15-39-56.jpg'
+const cars = [
+  { name: 'Supercar Moderna', year: '2020', photo: 'PHOTO-2025-07-01-15-36-30 2.jpg' },
+  { name: 'Supercar Moderna', year: '2021', photo: 'PHOTO-2025-07-01-15-36-30 3.jpg' },
+  { name: 'Supercar Moderna', year: '2022', photo: 'PHOTO-2025-07-01-15-36-30 4.jpg' },
+  { name: 'Supercar Moderna', year: '2020', photo: 'PHOTO-2025-07-01-15-36-30 5.jpg' },
+  { name: 'Supercar Moderna', year: '2021', photo: 'PHOTO-2025-07-01-15-36-30 6.jpg' },
+  { name: 'Supercar Moderna', year: '2022', photo: 'PHOTO-2025-07-01-15-36-30 7.jpg' },
+  { name: 'Supercar Moderna', year: '2023', photo: 'PHOTO-2025-07-01-15-36-30 8.jpg' },
+  { name: 'Supercar Moderna', year: '2020', photo: 'PHOTO-2025-07-01-15-36-30 9.jpg' },
+  { name: 'Supercar Moderna', year: '2021', photo: 'PHOTO-2025-07-01-15-36-30.jpg' },
+  { name: 'Supercar Moderna', year: '2022', photo: 'PHOTO-2025-07-01-15-37-42 10.jpg' },
+  { name: 'Supercar Moderna', year: '2023', photo: 'PHOTO-2025-07-01-15-37-42 11.jpg' },
+  { name: 'Supercar Moderna', year: '2020', photo: 'PHOTO-2025-07-01-15-37-42 12.jpg' },
+  { name: 'Supercar Moderna', year: '2021', photo: 'PHOTO-2025-07-01-15-37-42 13.jpg' },
+  { name: 'Supercar Moderna', year: '2022', photo: 'PHOTO-2025-07-01-15-37-42 2.jpg' },
+  { name: 'Supercar Moderna', year: '2023', photo: 'PHOTO-2025-07-01-15-37-42 3.jpg' },
+  { name: 'Supercar Moderna', year: '2024', photo: 'PHOTO-2025-07-01-15-37-42 4.jpg' },
+  { name: 'Supercar Moderna', year: '2020', photo: 'PHOTO-2025-07-01-15-37-42 5.jpg' },
+  { name: 'Supercar Moderna', year: '2021', photo: 'PHOTO-2025-07-01-15-37-42 6.jpg' },
+  { name: 'Supercar Moderna', year: '2022', photo: 'PHOTO-2025-07-01-15-37-42 7.jpg' },
+  { name: 'Supercar Moderna', year: '2023', photo: 'PHOTO-2025-07-01-15-37-42 8.jpg' },
+  { name: 'Supercar Moderna', year: '2024', photo: 'PHOTO-2025-07-01-15-37-42 9.jpg' },
+  { name: 'Supercar Moderna', year: '2020', photo: 'PHOTO-2025-07-01-15-37-42.jpg' },
+  { name: 'Supercar Moderna', year: '2021', photo: 'PHOTO-2025-07-01-15-39-24 2.jpg' },
+  { name: 'Supercar Moderna', year: '2022', photo: 'PHOTO-2025-07-01-15-39-24 3.jpg' },
+  { name: 'Supercar Moderna', year: '2023', photo: 'PHOTO-2025-07-01-15-39-24 4.jpg' },
+  { name: 'Supercar Moderna', year: '2024', photo: 'PHOTO-2025-07-01-15-39-24.jpg' },
+  { name: 'Supercar Moderna', year: '2023', photo: 'PHOTO-2025-07-01-15-39-56.jpg' }
 ];
 
 onMounted(() => {

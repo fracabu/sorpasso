@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+  <div class="min-h-screen bg-black text-white">
     <!-- Hero Section -->
     <section class="relative h-[60vh] overflow-hidden">
       <div
@@ -36,7 +36,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
           <div
-            v-for="(photo, index) in photos"
+            v-for="(tour, index) in tours"
             :key="index"
             @click="showContact = true"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
@@ -45,9 +45,15 @@
           >
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              :style="{ backgroundImage: `url('/images/Tours Auto/${photo}')` }"
+              :style="{ backgroundImage: `url('/images/Tours Auto/${tour.photo}')` }"
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+            </div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">
+                {{ tour.name }}
+              </h3>
+              <p class="text-accent font-semibold text-sm">{{ tour.location }}</p>
             </div>
           </div>
 
@@ -78,23 +84,23 @@ import ContactForm from '@/components/Contact.vue';
 
 const showContact = ref(false);
 
-const photos = [
-  'PHOTO-2025-09-19-20-38-43 2.jpg',
-  'PHOTO-2025-09-19-20-38-43 3.jpg',
-  'PHOTO-2025-09-19-20-38-43 4.jpg',
-  'PHOTO-2025-09-19-20-38-43 5.jpg',
-  'PHOTO-2025-09-19-20-38-43 6.jpg',
-  'PHOTO-2025-09-19-20-38-43.jpg',
-  'PHOTO-2025-09-19-20-39-42 10.jpg',
-  'PHOTO-2025-09-19-20-39-42 2.jpg',
-  'PHOTO-2025-09-19-20-39-42 3.jpg',
-  'PHOTO-2025-09-19-20-39-42 4.jpg',
-  'PHOTO-2025-09-19-20-39-42 5.jpg',
-  'PHOTO-2025-09-19-20-39-42 6.jpg',
-  'PHOTO-2025-09-19-20-39-42 7.jpg',
-  'PHOTO-2025-09-19-20-39-42 8.jpg',
-  'PHOTO-2025-09-19-20-39-42 9.jpg',
-  'PHOTO-2025-09-19-20-39-42.jpg'
+const tours = [
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-38-43 2.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-38-43 3.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-38-43 4.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-38-43 5.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-38-43 6.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-38-43.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42 10.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42 2.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42 3.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42 4.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42 5.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42 6.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42 7.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42 8.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42 9.jpg' },
+  { name: 'Tour Auto', location: 'Italia', photo: 'PHOTO-2025-09-19-20-39-42.jpg' }
 ];
 
 onMounted(() => {
