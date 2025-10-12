@@ -13,8 +13,15 @@ import MezziSpeciali from '../views/services/MezziSpeciali.vue';
 import MareAria from '../views/services/MareAria.vue';
 import Personalizzazione from '../views/services/Personalizzazione.vue';
 import AutoMatrimoni from '../views/services/AutoMatrimoni.vue';
+import Supercar from '../views/services/Supercar.vue';
 import Privacy from '../views/Privacy.vue';
 import Cookie from '../views/Cookie.vue';
+// Import vintage car subcategories
+import Anni1020 from '../views/services/vintage/Anni1020.vue';
+import Anni3040 from '../views/services/vintage/Anni3040.vue';
+import Anni5060 from '../views/services/vintage/Anni5060.vue';
+import Anni70 from '../views/services/vintage/Anni70.vue';
+import Anni80 from '../views/services/vintage/Anni80.vue';
 
 // Auth guard con Firebase
 const requireAuth = (to: any, from: any, next: any) => {
@@ -81,6 +88,31 @@ const router = createRouter({
       component: AutoEpoca,
     },
     {
+      path: '/servizi/auto-epoca/anni-10-20',
+      name: 'auto-epoca-anni-10-20',
+      component: Anni1020,
+    },
+    {
+      path: '/servizi/auto-epoca/anni-30-40',
+      name: 'auto-epoca-anni-30-40',
+      component: Anni3040,
+    },
+    {
+      path: '/servizi/auto-epoca/anni-50-60',
+      name: 'auto-epoca-anni-50-60',
+      component: Anni5060,
+    },
+    {
+      path: '/servizi/auto-epoca/anni-70',
+      name: 'auto-epoca-anni-70',
+      component: Anni70,
+    },
+    {
+      path: '/servizi/auto-epoca/anni-80',
+      name: 'auto-epoca-anni-80',
+      component: Anni80,
+    },
+    {
       path: '/servizi/mezzi-speciali',
       name: 'mezzi-speciali',
       component: MezziSpeciali,
@@ -99,6 +131,11 @@ const router = createRouter({
       path: '/servizi/auto-matrimoni',
       name: 'auto-matrimoni',
       component: AutoMatrimoni,
+    },
+    {
+      path: '/servizi/supercar',
+      name: 'supercar',
+      component: Supercar,
     },
     {
       path: '/privacy-policy',

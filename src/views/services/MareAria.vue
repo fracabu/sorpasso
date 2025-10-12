@@ -9,7 +9,7 @@
           class="text-4xl md:text-5xl font-bold mb-16 text-center"
           data-aos="fade-up"
         >
-          {{ t('services.rental.categories.sea.title') }}
+          {{ t('services.categories.sea.title') }}
         </h1>
 
         <!-- Prime 3 card -->
