@@ -73,7 +73,7 @@
           >
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1600706432502-77a0e2e32771?q=80&w=2069')"
+              style="background-image: url('/images/Auto%20anni%2050%20-%2060/PHOTO-2025-06-29-19-01-27.jpg')"
             ></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
             <div class="relative h-full p-6 flex flex-col justify-end text-center">
@@ -96,7 +96,7 @@
           >
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=2070')"
+              style="background-image: url('/images/Auto%20anni%2070/WhatsApp%20Image%202025-10-11%20at%2020.36.52.jpeg')"
             ></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
             <div class="relative h-full p-6 flex flex-col justify-end text-center">
@@ -119,7 +119,7 @@
           >
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=2070')"
+              style="background-image: url('/images/Auto%20anni%2080/WhatsApp%20Image%202025-10-11%20at%2020.41.25.jpeg')"
             ></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
             <div class="relative h-full p-6 flex flex-col justify-end text-center">

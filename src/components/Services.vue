@@ -15,15 +15,15 @@ const vehicleCategories = [
     title: t('services.categories.vintage.title'),
     subtitle: t('services.categories.vintage.subtitle'),
     description: t('services.categories.vintage.description'),
-    bgImage: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?q=80&w=2070",
+    bgImage: "/images/Auto%20anni%2050%20-%2060/PHOTO-2025-06-29-19-01-27.jpg",
     route: t('services.categories.vintage.route')
   },
   {
-    title: t('services.categories.special.title'),
-    subtitle: t('services.categories.special.subtitle'),
-    description: t('services.categories.special.description'),
-    bgImage: "https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=2070",
-    route: t('services.categories.special.route')
+    title: 'SUPER CARS',
+    subtitle: 'Moderne, Vintage & Tours',
+    description: 'Le supercar più esclusive per ogni occasione',
+    bgImage: "/images/Super%20Cars%20Vintage/PHOTO-2025-07-01-15-41-51.jpg",
+    route: '/servizi/supercars'
   },
   {
     title: t('services.categories.sea.title'),

@@ -3,6 +3,18 @@
     <Header />
     <section class="bg-black flex items-center min-h-screen">
       <div class="container">
+        <!-- Back Button -->
+        <router-link
+          to="/servizi/auto-epoca"
+          class="inline-flex items-center text-white/90 hover:text-white mb-8 transition-colors group"
+          data-aos="fade-up"
+        >
+          <svg class="w-5 h-5 mr-2 transform group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+          </svg>
+          Torna ad Auto d'Epoca
+        </router-link>
+
         <!-- Titolo -->
         <h1
           class="text-4xl md:text-5xl font-bold mb-8 text-center"

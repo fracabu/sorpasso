@@ -742,7 +742,7 @@
 import { ref, onMounted } from 'vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ContactForm from '@/components/ContactForm.vue';
+import ContactForm from '@/components/Contact.vue';
 
 const showContact = ref(false);
 

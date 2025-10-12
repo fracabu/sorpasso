@@ -14,6 +14,7 @@ import MareAria from '../views/services/MareAria.vue';
 import Personalizzazione from '../views/services/Personalizzazione.vue';
 import AutoMatrimoni from '../views/services/AutoMatrimoni.vue';
 import Supercar from '../views/services/Supercar.vue';
+import SuperCars from '../views/services/SuperCars.vue';
 import Privacy from '../views/Privacy.vue';
 import Cookie from '../views/Cookie.vue';
 // Import vintage car subcategories
@@ -22,6 +23,10 @@ import Anni3040 from '../views/services/vintage/Anni3040.vue';
 import Anni5060 from '../views/services/vintage/Anni5060.vue';
 import Anni70 from '../views/services/vintage/Anni70.vue';
 import Anni80 from '../views/services/vintage/Anni80.vue';
+// Import supercars subcategories
+import SuperCarsModerne from '../views/services/supercars/SuperCarsModerne.vue';
+import SuperCarsVintage from '../views/services/supercars/SuperCarsVintage.vue';
+import ToursAuto from '../views/services/supercars/ToursAuto.vue';
 
 // Auth guard con Firebase
 const requireAuth = (to: any, from: any, next: any) => {
@@ -136,6 +141,26 @@ const router = createRouter({
       path: '/servizi/supercar',
       name: 'supercar',
       component: Supercar,
+    },
+    {
+      path: '/servizi/supercars',
+      name: 'supercars',
+      component: SuperCars,
+    },
+    {
+      path: '/servizi/supercars/moderne',
+      name: 'supercars-moderne',
+      component: SuperCarsModerne,
+    },
+    {
+      path: '/servizi/supercars/vintage',
+      name: 'supercars-vintage',
+      component: SuperCarsVintage,
+    },
+    {
+      path: '/servizi/supercars/tours',
+      name: 'supercars-tours',
+      component: ToursAuto,
     },
     {
       path: '/privacy-policy',
