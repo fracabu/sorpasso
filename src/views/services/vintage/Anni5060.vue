@@ -20,8 +20,108 @@
         </p>
 
         <!-- Card delle auto -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <!-- Fiat 500 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+          <!-- Auto 1 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Fiat 500
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1957</p>
+            </div>
+          </div>
+
+          <!-- Auto 2 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="120"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 2.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Alfa Romeo Giulietta
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1954</p>
+            </div>
+          </div>
+
+          <!-- Auto 3 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="140"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 3.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Lancia Aurelia B20
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1951</p>
+            </div>
+          </div>
+
+          <!-- Auto 4 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="160"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 4.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Ferrari 250 GT
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1956</p>
+            </div>
+          </div>
+
+          <!-- Auto 5 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="180"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 5.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Maserati 3500 GT
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1957</p>
+            </div>
+          </div>
+
+          <!-- Auto 6 -->
           <div
             @click="showContact = true"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
@@ -30,21 +130,98 @@
           >
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1600706432502-77a0e2e32771?q=80&w=2069')"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 6.jpg')` }"
             ></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div class="relative h-full p-6 flex flex-col justify-end text-center">
               <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                Fiat 500
+                Porsche 356
               </h3>
-              <p class="text-accent font-semibold mb-2 text-sm">Anni 50</p>
-              <p class="text-white/80 text-sm">
-                L'icona italiana del boom economico, simbolo di rinascita e ottimismo
-              </p>
+              <p class="text-accent font-semibold mb-2 text-sm">1950</p>
             </div>
           </div>
 
-          <!-- Ferrari 250 -->
+          <!-- Auto 7 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="220"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 7.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Jaguar E-Type
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1961</p>
+            </div>
+          </div>
+
+          <!-- Auto 8 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="240"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 8.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Mercedes-Benz 300 SL
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1954</p>
+            </div>
+          </div>
+
+          <!-- Auto 9 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="260"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 9.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Chevrolet Corvette C1
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1953</p>
+            </div>
+          </div>
+
+          <!-- Auto 10 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="280"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 10.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Aston Martin DB5
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1963</p>
+            </div>
+          </div>
+
+          <!-- Auto 11 -->
           <div
             @click="showContact = true"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
@@ -53,21 +230,98 @@
           >
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1592198084033-aade902d1aae?q=80&w=2070')"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 11.jpg')` }"
             ></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div class="relative h-full p-6 flex flex-col justify-end text-center">
               <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                Ferrari 250
+                Lancia Flaminia
               </h3>
-              <p class="text-accent font-semibold mb-2 text-sm">Boom Economico</p>
-              <p class="text-white/80 text-sm">
-                Leggenda di Maranello, perfetta per scene di lusso e velocità
-              </p>
+              <p class="text-accent font-semibold mb-2 text-sm">1957</p>
             </div>
           </div>
 
-          <!-- Porsche 356 -->
+          <!-- Auto 12 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="320"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 12.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Alfa Romeo 2000 Spider
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1958</p>
+            </div>
+          </div>
+
+          <!-- Auto 13 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="340"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 13.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Fiat 600
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1955</p>
+            </div>
+          </div>
+
+          <!-- Auto 14 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="360"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 14.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                BMW 507
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1956</p>
+            </div>
+          </div>
+
+          <!-- Auto 15 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="380"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 15.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Triumph TR3
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1955</p>
+            </div>
+          </div>
+
+          <!-- Auto 16 -->
           <div
             @click="showContact = true"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
@@ -76,17 +330,274 @@
           >
             <div
               class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=2070')"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 16.jpg')` }"
             ></div>
             <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
             <div class="relative h-full p-6 flex flex-col justify-end text-center">
               <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                Porsche 356
+                Austin-Healey 3000
               </h3>
-              <p class="text-accent font-semibold mb-2 text-sm">Eleganza Tedesca</p>
-              <p class="text-white/80 text-sm">
-                La prima vera Porsche, eleganza e sportività tedesche
-              </p>
+              <p class="text-accent font-semibold mb-2 text-sm">1959</p>
+            </div>
+          </div>
+
+          <!-- Auto 17 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="420"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 17.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Ford Thunderbird
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1955</p>
+            </div>
+          </div>
+
+          <!-- Auto 18 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="440"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 18.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Volkswagen Beetle
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1950</p>
+            </div>
+          </div>
+
+          <!-- Auto 19 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="460"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 19.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Citroën DS
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1955</p>
+            </div>
+          </div>
+
+          <!-- Auto 20 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="480"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 20.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                MG MGA
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1955</p>
+            </div>
+          </div>
+
+          <!-- Auto 21 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="500"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 21.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Alfa Romeo Giulia Spider
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1962</p>
+            </div>
+          </div>
+
+          <!-- Auto 22 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="520"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 22.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Ferrari 250 GTO
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1962</p>
+            </div>
+          </div>
+
+          <!-- Auto 23 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="540"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 23.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Shelby Cobra
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1962</p>
+            </div>
+          </div>
+
+          <!-- Auto 24 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="560"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 24.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Lamborghini 350 GT
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1964</p>
+            </div>
+          </div>
+
+          <!-- Auto 25 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="580"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 25.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Maserati A6GCS
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1953</p>
+            </div>
+          </div>
+
+          <!-- Auto 26 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="600"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 26.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Cadillac Eldorado
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1959</p>
+            </div>
+          </div>
+
+          <!-- Auto 27 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="620"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 27.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Rolls-Royce Silver Cloud
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1955</p>
+            </div>
+          </div>
+
+          <!-- Auto 28 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="640"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 28.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Bentley S1 Continental
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1955</p>
+            </div>
+          </div>
+
+          <!-- Auto 29 -->
+          <div
+            @click="showContact = true"
+            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="660"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              :style="{ backgroundImage: `url('/images/Auto anni 50 - 60/PHOTO-2025-06-29-19-01-27 29.jpg')` }"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                Lancia Appia
+              </h3>
+              <p class="text-accent font-semibold mb-2 text-sm">1953</p>
             </div>
           </div>
         </div>
