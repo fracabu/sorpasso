@@ -1,190 +1,89 @@
 <template>
   <div class="bg-black text-white">
     <Header />
-    <!-- Prima sezione: stessa struttura delle altre sezioni -->
-    <section class="bg-black flex items-center min-h-screen">
-      <div class="container">
-        <!-- Titolo principale -->
-        <h1 
-          class="text-4xl md:text-5xl font-bold mb-16 text-center"
-          data-aos="fade-up"
-        >
-          {{ t('services.categories.sea.title') }}
-        </h1>
 
-        <!-- Prime 3 card -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div 
-            @click="showContact = true" 
-            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div 
-              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1566847438217-76e82d383f84?q=80&w=2070')"
-            ></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-            <div class="relative h-full p-6 flex flex-col justify-end text-center">
-              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                Yacht d'Epoca
-              </h3>
-              <p class="text-accent font-semibold mb-2 text-sm">Lusso e Tradizione</p>
-              <p class="text-white/80 text-sm">
-                Eleganti imbarcazioni storiche per scene di lusso e raffinatezza
-              </p>
-            </div>
-          </div>
-
-          <div 
-            @click="showContact = true" 
-            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <div 
-              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?q=80&w=2070')"
-            ></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-            <div class="relative h-full p-6 flex flex-col justify-end text-center">
-              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                Motoscafi Vintage
-              </h3>
-              <p class="text-accent font-semibold mb-2 text-sm">Velocità e Stile</p>
-              <p class="text-white/80 text-sm">
-                Imbarcazioni classiche per scene dinamiche e d'epoca
-              </p>
-            </div>
-          </div>
-
-          <div 
-            @click="showContact = true" 
-            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <div 
-              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1517925035435-7976539b920d?q=80&w=2070')"
-            ></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-            <div class="relative h-full p-6 flex flex-col justify-end text-center">
-              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                Aerei Classici
-              </h3>
-              <p class="text-accent font-semibold mb-2 text-sm">Eleganza in Volo</p>
-              <p class="text-white/80 text-sm">
-                Velivoli d'epoca per scene di lusso e viaggi esclusivi
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Seconda sezione: altre 3 card -->
-    <section class="bg-black flex items-center min-h-screen">
-      <div class="container">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div 
-            @click="showContact = true" 
-            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div 
-              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?q=80&w=2070')"
-            ></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-            <div class="relative h-full p-6 flex flex-col justify-end text-center">
-              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                Elicotteri
-              </h3>
-              <p class="text-accent font-semibold mb-2 text-sm">Versatilità Aerea</p>
-              <p class="text-white/80 text-sm">
-                Elicotteri per riprese aeree e trasporto VIP
-              </p>
-            </div>
-          </div>
-
-          <div 
-            @click="showContact = true" 
-            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
-            data-aos="fade-up"
-            data-aos-delay="400"
-          >
-            <div 
-              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1507692049790-de58290a4334?q=80&w=2070')"
-            ></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-            <div class="relative h-full p-6 flex flex-col justify-end text-center">
-              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                Barche Storiche
-              </h3>
-              <p class="text-accent font-semibold mb-2 text-sm">Tradizione Marinara</p>
-              <p class="text-white/80 text-sm">
-                Imbarcazioni tradizionali per scene autentiche
-              </p>
-            </div>
-          </div>
-
-          <div 
-            @click="showContact = true" 
-            class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
-            data-aos="fade-up"
-            data-aos-delay="600"
-          >
-            <div 
-              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-              style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2070')"
-            ></div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-            <div class="relative h-full p-6 flex flex-col justify-end text-center">
-              <h3 class="text-xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
-                Idrovolanti
-              </h3>
-              <p class="text-accent font-semibold mb-2 text-sm">Mare e Cielo</p>
-              <p class="text-white/80 text-sm">
-                Velivoli anfibio per scene spettacolari
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Form Modal -->
-    <Teleport to="body">
-      <div 
-        v-if="showContact" 
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-        @click="showContact = false"
+    <!-- Hero Section -->
+    <section class="relative h-screen overflow-hidden flex items-center justify-center">
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('/images/Barche%20&%20Yacht/PHOTO-2025-07-01-17-26-09.jpg')"
       >
-        <div 
-          class="bg-zinc-900 rounded-lg w-full max-w-2xl"
-          @click.stop
-        >
-          <Contact />
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div data-aos="fade-up">
+          <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6">
+            {{ t('services.categories.sea.title') }}
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+            Esplora le nostre esclusive collezioni di barche, yacht, elicotteri e aerei per le tue produzioni più prestigiose.
+          </p>
         </div>
       </div>
-    </Teleport>
+    </section>
+
+    <!-- Sezione sottocategorie -->
+    <section class="bg-black py-20">
+      <div class="container">
+
+        <!-- Sottocategorie: Mare e Aria -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+          <!-- Mare: Barche & Yacht -->
+          <router-link
+            to="/servizi/mare-aria/barche-yacht"
+            class="relative group cursor-pointer h-[400px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              style="background-image: url('/images/Barche & Yacht/PHOTO-2025-07-01-17-26-09.jpg')"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+            <div class="relative h-full p-8 flex flex-col justify-end text-center">
+              <h3 class="text-3xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                MARE
+              </h3>
+              <p class="text-accent font-semibold mb-4 text-lg">Barche & Yacht</p>
+              <p class="text-white/80 text-base">
+                Eleganti imbarcazioni e yacht di lusso per scene marine indimenticabili
+              </p>
+            </div>
+          </router-link>
+
+          <!-- Aria: Elicotteri & Aerei -->
+          <router-link
+            to="/servizi/mare-aria/elicotteri-aerei"
+            class="relative group cursor-pointer h-[400px] rounded-2xl overflow-hidden"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+              style="background-image: url('/images/Elicotteri & Aerei/PHOTO-2025-07-01-17-30-44.jpg')"
+            ></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+            <div class="relative h-full p-8 flex flex-col justify-end text-center">
+              <h3 class="text-3xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+                ARIA
+              </h3>
+              <p class="text-accent font-semibold mb-4 text-lg">Elicotteri & Aerei</p>
+              <p class="text-white/80 text-base">
+                Velivoli esclusivi per riprese aeree mozzafiato e trasporto VIP
+              </p>
+            </div>
+          </router-link>
+        </div>
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, provide } from 'vue'
+import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
 import Header from '@/components/Header.vue'
-import Contact from '@/components/Contact.vue'
 
 const { t } = useI18n()
-const showContact = ref(false)
-
-// Provide the function to show contact form to child components
-provide('showContactForm', () => {
-  showContact.value = true
-})
 </script>

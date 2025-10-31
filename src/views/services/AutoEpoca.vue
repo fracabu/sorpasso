@@ -1,20 +1,31 @@
 <template>
   <div class="bg-black text-white">
     <Header />
-    <!-- Sezione sottocategorie -->
-    <section class="bg-black flex items-center min-h-screen">
-      <div class="container">
-        <!-- Titolo principale -->
-        <h1
-          class="text-4xl md:text-5xl font-bold mb-16 text-center"
-          data-aos="fade-up"
-        >
-          {{ t('services.categories.vintage.title') }}
-        </h1>
 
-        <p class="text-center text-white/80 text-lg mb-16 max-w-3xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-          {{ t('services.categories.vintage.longDescription') }}
-        </p>
+    <!-- Hero Section -->
+    <section class="relative h-screen overflow-hidden flex items-center justify-center">
+      <div
+        class="absolute inset-0 bg-cover bg-center"
+        style="background-image: url('/images/Auto%20anni%2050%20-%2060/PHOTO-2025-06-29-19-01-27.jpg')"
+      >
+        <div class="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black"></div>
+      </div>
+
+      <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div data-aos="fade-up">
+          <h1 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6">
+            {{ t('services.categories.vintage.title') }}
+          </h1>
+          <p class="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto">
+            {{ t('services.categories.vintage.longDescription') }}
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sezione sottocategorie -->
+    <section class="bg-black py-20">
+      <div class="container">
 
         <!-- Sottocategorie per decadi -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

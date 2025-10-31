@@ -1,7 +1,7 @@
 <template>
   <div class="min-h-screen bg-black text-white">
     <!-- Hero Section -->
-    <section class="relative h-[60vh] overflow-hidden">
+    <section class="relative h-screen overflow-hidden">
       <div
         class="absolute inset-0 bg-cover bg-center"
         :style="{ backgroundImage: `url('/images/Super Cars Vintage/PHOTO-2025-07-01-15-40-46.jpg')` }"
@@ -38,7 +38,7 @@
           <div
             v-for="(car, index) in cars"
             :key="index"
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             :data-aos-delay="index * 50"
@@ -61,28 +61,13 @@
       </div>
     </section>
 
-    <!-- Contact Modal -->
-    <Teleport to="body">
-      <div
-        v-if="showContact"
-        @click.self="showContact = false"
-        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-      >
-        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-          <ContactForm @close="showContact = false" />
-        </div>
-      </div>
-    </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ContactForm from '@/components/Contact.vue';
-
-const showContact = ref(false);
 
 const cars = [
   { name: 'Supercar Vintage', year: '1980s', photo: 'PHOTO-2025-07-01-15-40-46 2.jpg' },

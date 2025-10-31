@@ -37,7 +37,7 @@
 
           <!-- Ferrari F40 (1987) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="0"
@@ -56,7 +56,7 @@
 
           <!-- Lamborghini Countach 5000 QV (1985) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="50"
@@ -75,7 +75,7 @@
 
           <!-- Porsche 959 (1986) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="100"
@@ -94,7 +94,7 @@
 
           <!-- Ferrari Testarossa (1984) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="150"
@@ -113,7 +113,7 @@
 
           <!-- Lamborghini Jalpa (1981) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="200"
@@ -132,7 +132,7 @@
 
           <!-- BMW M3 E30 (1986) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="250"
@@ -151,7 +151,7 @@
 
           <!-- Mercedes-Benz 190E 2.3-16 (1983) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="300"
@@ -170,7 +170,7 @@
 
           <!-- Audi Quattro (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="350"
@@ -189,7 +189,7 @@
 
           <!-- Lancia Delta Integrale (1987) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="400"
@@ -208,7 +208,7 @@
 
           <!-- Alfa Romeo 75 (1985) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="450"
@@ -227,7 +227,7 @@
 
           <!-- Porsche 911 Turbo 930 (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="500"
@@ -246,7 +246,7 @@
 
           <!-- Ferrari 308 GTS (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="550"
@@ -265,7 +265,7 @@
 
           <!-- DeLorean DMC-12 (1981) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="600"
@@ -284,7 +284,7 @@
 
           <!-- Renault 5 Turbo (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="650"
@@ -303,7 +303,7 @@
 
           <!-- Peugeot 205 GTI (1984) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="700"
@@ -322,7 +322,7 @@
 
           <!-- Volkswagen Golf GTI Mk2 (1983) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="750"
@@ -341,7 +341,7 @@
 
           <!-- BMW M5 E28 (1985) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="800"
@@ -360,7 +360,7 @@
 
           <!-- Mercedes-Benz SL R107 (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="850"
@@ -379,7 +379,7 @@
 
           <!-- Jaguar XJ-S (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="900"
@@ -398,7 +398,7 @@
 
           <!-- Aston Martin V8 Vantage (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="950"
@@ -417,7 +417,7 @@
 
           <!-- Lotus Esprit Turbo (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1000"
@@ -436,7 +436,7 @@
 
           <!-- Maserati Biturbo (1981) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1050"
@@ -455,7 +455,7 @@
 
           <!-- Ferrari Mondial (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1100"
@@ -474,7 +474,7 @@
 
           <!-- Porsche 928 S (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1150"
@@ -493,7 +493,7 @@
 
           <!-- BMW 635 CSi (1982) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1200"
@@ -512,7 +512,7 @@
 
           <!-- Alfa Romeo GTV6 (1980) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1250"
@@ -531,7 +531,7 @@
 
           <!-- Fiat Uno Turbo (1985) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1300"
@@ -550,7 +550,7 @@
 
           <!-- Lancia Thema 8.32 (1986) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1350"
@@ -569,7 +569,7 @@
 
           <!-- Ferrari 288 GTO (1984) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1400"
@@ -588,7 +588,7 @@
 
           <!-- Lamborghini LM002 (1986) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1450"
@@ -607,7 +607,7 @@
 
           <!-- Nissan 300ZX (1984) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1500"
@@ -626,7 +626,7 @@
 
           <!-- Toyota Supra A70 (1986) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1550"
@@ -645,7 +645,7 @@
 
           <!-- Mazda RX-7 FC (1985) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1600"
@@ -664,7 +664,7 @@
 
           <!-- Chevrolet Corvette C4 (1984) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1650"
@@ -683,7 +683,7 @@
 
           <!-- Pontiac Firebird Trans Am (1982) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1700"
@@ -702,7 +702,7 @@
 
           <!-- Ford Mustang GT (1987) -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300"
             data-aos="fade-up"
             data-aos-delay="1750"
@@ -723,28 +723,13 @@
       </div>
     </section>
 
-    <!-- Contact Modal -->
-    <Teleport to="body">
-      <div
-        v-if="showContact"
-        @click.self="showContact = false"
-        class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-      >
-        <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-          <ContactForm @close="showContact = false" />
-        </div>
-      </div>
-    </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue';
+import { onMounted } from 'vue';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
-import ContactForm from '@/components/Contact.vue';
-
-const showContact = ref(false);
 
 onMounted(() => {
   AOS.init({

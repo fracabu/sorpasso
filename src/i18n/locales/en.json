@@ -27,6 +27,34 @@
         "longDescription": "Our collection of vintage cars spans from 1900 to today, offering a wide range of vehicles for every cinematic need.",
         "route": "/servizi/auto-epoca"
       },
+      "moto": {
+        "title": "MOTORCYCLES",
+        "subtitle": "Vintage, Modern & Vespas",
+        "description": "Historic and modern motorcycles for every need",
+        "longDescription": "Our motorcycle collection ranges from the most iconic vintage bikes to modern two-wheelers, including the timeless Vespas and Lambrettas, perfect for any production.",
+        "route": "/servizi/moto"
+      },
+      "musclecars": {
+        "title": "TUNING & MUSCLE CARS",
+        "subtitle": "Power & Personality",
+        "description": "Powerful and customized cars for every scene",
+        "longDescription": "Our collection of muscle cars and tuning vehicles offers modified and high-performance cars for your most adrenaline-fueled productions.",
+        "route": "/servizi/tuning-muscle-cars"
+      },
+      "military": {
+        "title": "MILITARY VEHICLES",
+        "subtitle": "Vintage & Modern",
+        "description": "Historic and modern military vehicles",
+        "longDescription": "Our collection of military vehicles ranges from historic World War II vehicles to modern military means, perfect for any type of film production.",
+        "route": "/servizi/mezzi-militari"
+      },
+      "boats": {
+        "title": "BOATS & YACHTS",
+        "subtitle": "Luxury & Elegance",
+        "description": "Luxury vessels for exclusive productions",
+        "longDescription": "Our collection of boats and yachts offers luxury vessels for exclusive film shoots at sea, from the Mediterranean to the most prestigious locations.",
+        "route": "/servizi/barche-yacht"
+      },
       "special": {
         "title": "SPECIAL VEHICLES",
         "subtitle": "Guaranteed versatility",

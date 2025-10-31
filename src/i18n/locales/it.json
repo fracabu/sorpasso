@@ -27,6 +27,34 @@
         "longDescription": "La nostra collezione di auto d'epoca spazia dal 1900 ad oggi, offrendo un'ampia gamma di veicoli per ogni esigenza cinematografica.",
         "route": "/servizi/auto-epoca"
       },
+      "moto": {
+        "title": "MOTO",
+        "subtitle": "D'Epoca, Moderne & Vespe",
+        "description": "Motociclette storiche e moderne per ogni esigenza",
+        "longDescription": "La nostra collezione di motociclette spazia dalle moto d'epoca più iconiche alle moderne due ruote, fino alle intramontabili Vespe e Lambrette, perfette per ogni produzione.",
+        "route": "/servizi/moto"
+      },
+      "musclecars": {
+        "title": "TUNING & MUSCLE CARS",
+        "subtitle": "Potenza & Personalità",
+        "description": "Auto potenti e personalizzate per ogni scena",
+        "longDescription": "La nostra collezione di muscle cars e auto tuning offre veicoli modificati e ad alte prestazioni per le tue produzioni più adrenaliniche.",
+        "route": "/servizi/tuning-muscle-cars"
+      },
+      "military": {
+        "title": "MEZZI MILITARI",
+        "subtitle": "D'Epoca & Moderni",
+        "description": "Veicoli militari storici e moderni",
+        "longDescription": "La nostra collezione di mezzi militari spazia dai veicoli storici della Seconda Guerra Mondiale ai mezzi militari moderni, perfetti per ogni tipo di produzione cinematografica.",
+        "route": "/servizi/mezzi-militari"
+      },
+      "boats": {
+        "title": "BARCHE & YACHT",
+        "subtitle": "Lusso & Eleganza",
+        "description": "Imbarcazioni di lusso per produzioni esclusive",
+        "longDescription": "La nostra collezione di barche e yacht offre imbarcazioni di lusso per riprese cinematografiche esclusive in mare, dal Mediterraneo alle location più prestigiose.",
+        "route": "/servizi/barche-yacht"
+      },
       "special": {
         "title": "MEZZI SPECIALI",
         "subtitle": "Guaranteed versatility",

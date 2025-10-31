@@ -26,25 +26,39 @@ const vehicleCategories = [
     route: '/servizi/supercars'
   },
   {
+    title: t('services.categories.moto.title'),
+    subtitle: t('services.categories.moto.subtitle'),
+    description: t('services.categories.moto.description'),
+    bgImage: "/images/Moto%20d_Epoca/PHOTO-2025-07-01-17-20-26.jpg",
+    route: t('services.categories.moto.route')
+  },
+  {
+    title: t('services.categories.musclecars.title'),
+    subtitle: t('services.categories.musclecars.subtitle'),
+    description: t('services.categories.musclecars.description'),
+    bgImage: "/images/Auto%20Tunning%20&%20Muscle%20Cars/PHOTO-2025-07-01-17-09-36.jpg",
+    route: t('services.categories.musclecars.route')
+  },
+  {
+    title: t('services.categories.military.title'),
+    subtitle: t('services.categories.military.subtitle'),
+    description: t('services.categories.military.description'),
+    bgImage: "/images/Mezzi%20Militari%20d_Epoca/PHOTO-2025-07-01-17-12-45.jpg",
+    route: t('services.categories.military.route')
+  },
+  {
     title: t('services.categories.sea.title'),
     subtitle: t('services.categories.sea.subtitle'),
     description: t('services.categories.sea.description'),
-    bgImage: "https://images.unsplash.com/photo-1471922694854-ff1b63b20054?q=80&w=2072",
+    bgImage: "/images/Barche%20&%20Yacht/PHOTO-2025-07-01-17-26-09.jpg",
     route: t('services.categories.sea.route')
   },
   {
     title: t('services.categories.custom.title'),
     subtitle: t('services.categories.custom.subtitle'),
     description: t('services.categories.custom.description'),
-    bgImage: "https://images.unsplash.com/photo-1614200187524-dc4b892acf16?q=80&w=2070",
+    bgImage: "/images/Personalizzazioni/PHOTO-2025-02-07-17-46-02.jpg",
     route: t('services.categories.custom.route')
-  },
-  {
-    title: t('services.categories.wedding.title'),
-    subtitle: t('services.categories.wedding.subtitle'),
-    description: t('services.categories.wedding.description'),
-    bgImage: "https://images.unsplash.com/photo-1515706886582-54c73c5eaf41?q=80&w=2070",
-    route: t('services.categories.wedding.route')
   }
 ]
 

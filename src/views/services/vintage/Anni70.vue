@@ -23,7 +23,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           <!-- Auto 1 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="100"
@@ -43,7 +43,7 @@
 
           <!-- Auto 2 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="120"
@@ -63,7 +63,7 @@
 
           <!-- Auto 3 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="140"
@@ -83,7 +83,7 @@
 
           <!-- Auto 4 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="160"
@@ -103,7 +103,7 @@
 
           <!-- Auto 5 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="180"
@@ -123,7 +123,7 @@
 
           <!-- Auto 6 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="200"
@@ -143,7 +143,7 @@
 
           <!-- Auto 7 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="220"
@@ -163,7 +163,7 @@
 
           <!-- Auto 8 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="240"
@@ -183,7 +183,7 @@
 
           <!-- Auto 9 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="260"
@@ -203,7 +203,7 @@
 
           <!-- Auto 10 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="280"
@@ -223,7 +223,7 @@
 
           <!-- Auto 11 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="300"
@@ -243,7 +243,7 @@
 
           <!-- Auto 12 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="320"
@@ -263,7 +263,7 @@
 
           <!-- Auto 13 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="340"
@@ -283,7 +283,7 @@
 
           <!-- Auto 14 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="360"
@@ -303,7 +303,7 @@
 
           <!-- Auto 15 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="380"
@@ -323,7 +323,7 @@
 
           <!-- Auto 16 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="400"
@@ -343,7 +343,7 @@
 
           <!-- Auto 17 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="420"
@@ -363,7 +363,7 @@
 
           <!-- Auto 18 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="440"
@@ -383,7 +383,7 @@
 
           <!-- Auto 19 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="460"
@@ -403,7 +403,7 @@
 
           <!-- Auto 20 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="480"
@@ -423,7 +423,7 @@
 
           <!-- Auto 21 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="500"
@@ -443,7 +443,7 @@
 
           <!-- Auto 22 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="520"
@@ -463,7 +463,7 @@
 
           <!-- Auto 23 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="540"
@@ -483,7 +483,7 @@
 
           <!-- Auto 24 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="560"
@@ -503,7 +503,7 @@
 
           <!-- Auto 25 -->
           <div
-            @click="showContact = true"
+            @click="$router.push('/contatti')"
             class="relative group cursor-pointer h-[280px] rounded-2xl overflow-hidden"
             data-aos="fade-up"
             data-aos-delay="580"
@@ -524,28 +524,9 @@
       </div>
     </section>
 
-    <!-- Contact Form Modal -->
-    <Teleport to="body">
-      <div
-        v-if="showContact"
-        class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-        @click="showContact = false"
-      >
-        <div
-          class="bg-zinc-900 rounded-lg w-full max-w-2xl"
-          @click.stop
-        >
-          <Contact />
-        </div>
-      </div>
-    </Teleport>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
 import Header from '@/components/Header.vue'
-import Contact from '@/components/Contact.vue'
-
-const showContact = ref(false)
 </script>
