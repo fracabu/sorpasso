@@ -13,21 +13,39 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+/* Nascondi scrollbar per Chrome, Safari e Opera */
+html::-webkit-scrollbar {
+  display: none;
 }
 
 body {
+  @apply m-0 bg-black text-white;
   overflow-x: hidden;
   width: 100%;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
-body {
-  @apply m-0 min-h-screen bg-black text-white;
-  overflow-x: hidden;
-  width: 100%;
+body::-webkit-scrollbar {
+  display: none;
 }
 
-section {
-  @apply min-h-screen py-24;
+/* Nascondi scrollbar su tutti gli elementi */
+*, *::before, *::after {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
+}
+
+*::-webkit-scrollbar,
+*::before::-webkit-scrollbar,
+*::after::-webkit-scrollbar {
+  display: none !important;  /* Chrome, Safari, Opera */
+  width: 0 !important;
+  height: 0 !important;
 }
 
 .container {
@@ -98,7 +116,6 @@ section {
 #app {
   overflow-x: hidden;
   width: 100%;
-  min-height: 100vh;
 }
 
 /* Page transitions */

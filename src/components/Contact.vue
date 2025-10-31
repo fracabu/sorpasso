@@ -116,7 +116,7 @@ const handleSubmit = async (e: Event) => {
 </script>
 
 <template>
-  <section id="contattaci" class="relative bg-black flex items-center py-6">
+  <section id="contattaci" class="relative bg-black flex items-center py-20">
     <div class="container relative z-10">
       <!-- Layout a tre colonne -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">

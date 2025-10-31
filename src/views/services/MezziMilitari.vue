@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-black text-white">
+  <div class="bg-black text-white overflow-x-hidden">
     <Header />
 
     <!-- Hero Section -->

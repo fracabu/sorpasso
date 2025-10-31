@@ -1,7 +1,7 @@
 <template>
-  <div class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+  <div class="bg-black text-white overflow-x-hidden">
     <!-- Hero Section -->
-    <section class="relative h-[60vh] overflow-hidden">
+    <section class="relative h-screen overflow-hidden">
       <div
         class="absolute inset-0 bg-cover bg-center"
         :style="{ backgroundImage: `url('/images/Auto anni 80/WhatsApp Image 2025-10-11 at 20.41.25.jpeg')` }"
@@ -31,7 +31,7 @@
     </section>
 
     <!-- Cars Grid -->
-    <section class="py-20 px-4 sm:px-6 lg:px-8">
+    <section class="bg-black py-20 px-4 sm:px-6 lg:px-8">
       <div class="max-w-7xl mx-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
 
@@ -48,9 +48,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Ferrari F40</h3>
-              <p class="text-lg text-white/90">1987</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1987</p>
             </div>
           </div>
 
@@ -67,9 +67,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Lamborghini Countach 5000 QV</h3>
-              <p class="text-lg text-white/90">1985</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1985</p>
             </div>
           </div>
 
@@ -86,9 +86,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Porsche 959</h3>
-              <p class="text-lg text-white/90">1986</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1986</p>
             </div>
           </div>
 
@@ -105,9 +105,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Ferrari Testarossa</h3>
-              <p class="text-lg text-white/90">1984</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1984</p>
             </div>
           </div>
 
@@ -124,9 +124,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Lamborghini Jalpa</h3>
-              <p class="text-lg text-white/90">1981</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1981</p>
             </div>
           </div>
 
@@ -143,9 +143,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">BMW M3 E30</h3>
-              <p class="text-lg text-white/90">1986</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1986</p>
             </div>
           </div>
 
@@ -162,9 +162,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Mercedes-Benz 190E 2.3-16</h3>
-              <p class="text-lg text-white/90">1983</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1983</p>
             </div>
           </div>
 
@@ -181,9 +181,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Audi Quattro</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -200,9 +200,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Lancia Delta Integrale</h3>
-              <p class="text-lg text-white/90">1987</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1987</p>
             </div>
           </div>
 
@@ -219,9 +219,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Alfa Romeo 75</h3>
-              <p class="text-lg text-white/90">1985</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1985</p>
             </div>
           </div>
 
@@ -238,9 +238,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Porsche 911 Turbo 930</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -257,9 +257,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Ferrari 308 GTS</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -276,9 +276,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">DeLorean DMC-12</h3>
-              <p class="text-lg text-white/90">1981</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1981</p>
             </div>
           </div>
 
@@ -295,9 +295,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Renault 5 Turbo</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -314,9 +314,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Peugeot 205 GTI</h3>
-              <p class="text-lg text-white/90">1984</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1984</p>
             </div>
           </div>
 
@@ -333,9 +333,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Volkswagen Golf GTI Mk2</h3>
-              <p class="text-lg text-white/90">1983</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1983</p>
             </div>
           </div>
 
@@ -352,9 +352,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">BMW M5 E28</h3>
-              <p class="text-lg text-white/90">1985</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1985</p>
             </div>
           </div>
 
@@ -371,9 +371,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Mercedes-Benz SL R107</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -390,9 +390,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Jaguar XJ-S</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -409,9 +409,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Aston Martin V8 Vantage</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -428,9 +428,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Lotus Esprit Turbo</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -447,9 +447,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Maserati Biturbo</h3>
-              <p class="text-lg text-white/90">1981</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1981</p>
             </div>
           </div>
 
@@ -466,9 +466,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Ferrari Mondial</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -485,9 +485,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Porsche 928 S</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -504,9 +504,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">BMW 635 CSi</h3>
-              <p class="text-lg text-white/90">1982</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1982</p>
             </div>
           </div>
 
@@ -523,9 +523,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Alfa Romeo GTV6</h3>
-              <p class="text-lg text-white/90">1980</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1980</p>
             </div>
           </div>
 
@@ -542,9 +542,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Fiat Uno Turbo</h3>
-              <p class="text-lg text-white/90">1985</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1985</p>
             </div>
           </div>
 
@@ -561,9 +561,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Lancia Thema 8.32</h3>
-              <p class="text-lg text-white/90">1986</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1986</p>
             </div>
           </div>
 
@@ -580,9 +580,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Ferrari 288 GTO</h3>
-              <p class="text-lg text-white/90">1984</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1984</p>
             </div>
           </div>
 
@@ -599,9 +599,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Lamborghini LM002</h3>
-              <p class="text-lg text-white/90">1986</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1986</p>
             </div>
           </div>
 
@@ -618,9 +618,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Nissan 300ZX</h3>
-              <p class="text-lg text-white/90">1984</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1984</p>
             </div>
           </div>
 
@@ -637,9 +637,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Toyota Supra A70</h3>
-              <p class="text-lg text-white/90">1986</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1986</p>
             </div>
           </div>
 
@@ -656,9 +656,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Mazda RX-7 FC</h3>
-              <p class="text-lg text-white/90">1985</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1985</p>
             </div>
           </div>
 
@@ -675,9 +675,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Chevrolet Corvette C4</h3>
-              <p class="text-lg text-white/90">1984</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1984</p>
             </div>
           </div>
 
@@ -694,9 +694,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Pontiac Firebird Trans Am</h3>
-              <p class="text-lg text-white/90">1982</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1982</p>
             </div>
           </div>
 
@@ -713,9 +713,9 @@
             >
               <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
             </div>
-            <div class="absolute bottom-0 left-0 right-0 p-6 text-white transform translate-y-2 group-hover:translate-y-0 transition-transform">
-              <h3 class="text-2xl font-serif font-bold mb-2">Ford Mustang GT</h3>
-              <p class="text-lg text-white/90">1987</p>
+            <div class="relative h-full p-6 flex flex-col justify-end text-center">
+              <h3 class="text-xl font-bold mb-2 text-white group-hover:text-accent transition-colors duration-300">Auto Anni '80</h3>
+              <p class="text-accent font-semibold text-sm">1987</p>
             </div>
           </div>
 

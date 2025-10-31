@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen bg-black text-white">
+  <div class="bg-black text-white overflow-x-hidden">
     <!-- Hero Section -->
     <section class="relative h-screen overflow-hidden">
       <div
