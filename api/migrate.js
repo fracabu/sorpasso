@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { createClient } from '@vercel/postgres';
 
 /**
  * TEMPORARY MIGRATION ENDPOINT
@@ -20,21 +20,29 @@ export default async function handler(req, res) {
   }
 
   console.log('[MIGRATION] Starting database migration...');
+  console.log('[MIGRATION] Using POSTGRES_URL for direct connection...');
+
+  const client = createClient({
+    connectionString: process.env.POSTGRES_URL
+  });
+
+  await client.connect();
 
   try {
     // Check if table already exists
-    const checkTable = await sql`
-      SELECT EXISTS (
+    const checkTable = await client.query(
+      `SELECT EXISTS (
         SELECT FROM information_schema.tables
         WHERE table_schema = 'public'
         AND table_name = 'contact_requests'
-      );
-    `;
+      )`
+    );
 
     const tableExists = checkTable.rows[0].exists;
 
     if (tableExists) {
       console.log('[MIGRATION] Table already exists');
+      await client.end();
       return res.status(200).json({
         success: true,
         message: 'Table contact_requests already exists',
@@ -45,7 +53,7 @@ export default async function handler(req, res) {
     console.log('[MIGRATION] Creating contact_requests table...');
 
     // Create the table
-    await sql`
+    await client.query(`
       CREATE TABLE contact_requests (
         id SERIAL PRIMARY KEY,
         name VARCHAR(255) NOT NULL,
@@ -54,21 +62,21 @@ export default async function handler(req, res) {
         message TEXT NOT NULL,
         status VARCHAR(50) DEFAULT 'new' CHECK (status IN ('new', 'in-progress', 'completed')),
         created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-      );
-    `;
+      )
+    `);
 
     console.log('[MIGRATION] Table created successfully');
     console.log('[MIGRATION] Creating indexes...');
 
     // Create indexes
-    await sql`CREATE INDEX idx_created_at ON contact_requests(created_at DESC);`;
-    await sql`CREATE INDEX idx_status ON contact_requests(status);`;
-    await sql`CREATE INDEX idx_email ON contact_requests(email);`;
+    await client.query('CREATE INDEX idx_created_at ON contact_requests(created_at DESC)');
+    await client.query('CREATE INDEX idx_status ON contact_requests(status)');
+    await client.query('CREATE INDEX idx_email ON contact_requests(email)');
 
     console.log('[MIGRATION] Indexes created successfully');
 
     // Verify the table structure
-    const columns = await sql`
+    const columns = await client.query(`
       SELECT
         column_name,
         data_type,
@@ -76,18 +84,20 @@ export default async function handler(req, res) {
         column_default
       FROM information_schema.columns
       WHERE table_name = 'contact_requests'
-      ORDER BY ordinal_position;
-    `;
+      ORDER BY ordinal_position
+    `);
 
-    const indexes = await sql`
+    const indexes = await client.query(`
       SELECT
         indexname,
         indexdef
       FROM pg_indexes
-      WHERE tablename = 'contact_requests';
-    `;
+      WHERE tablename = 'contact_requests'
+    `);
 
     console.log('[MIGRATION] Migration completed successfully');
+
+    await client.end();
 
     return res.status(200).json({
       success: true,
@@ -102,6 +112,7 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('[MIGRATION] Error:', error);
+    await client.end();
     return res.status(500).json({
       success: false,
       error: 'Migration failed',

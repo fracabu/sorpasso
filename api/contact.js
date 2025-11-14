@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { createClient } from '@vercel/postgres';
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
@@ -17,28 +17,62 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  console.log('[API Contact] Inizio richiesta di contatto');
+
   try {
     const { name, surname, email, message } = req.body;
+    console.log('[API Contact] Dati ricevuti:', { name, surname, email, messageLength: message?.length });
 
     // Validazione
     if (!name || !email || !message) {
+      console.log('[API Contact] Validazione fallita: campi mancanti');
       return res.status(400).json({ error: 'Nome, email e messaggio sono obbligatori' });
     }
 
     if (message.length < 10) {
+      console.log('[API Contact] Validazione fallita: messaggio troppo corto');
       return res.status(400).json({ error: 'Il messaggio deve essere di almeno 10 caratteri' });
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
+      console.log('[API Contact] Validazione fallita: email non valida');
       return res.status(400).json({ error: 'Email non valida' });
     }
 
+    console.log('[API Contact] Validazione completata con successo');
+
+    // Verifica variabili d'ambiente
+    if (!process.env.GMAIL_EMAIL || !process.env.GMAIL_PASS) {
+      console.error('[API Contact] ERRORE: Variabili d\'ambiente email mancanti!');
+      return res.status(500).json({
+        error: 'Configurazione server non valida',
+        details: 'Credenziali email non configurate'
+      });
+    }
+
+    console.log('[API Contact] Tentativo di salvataggio nel database...');
+
     // Salva nel database
-    await sql`
-      INSERT INTO contact_requests (name, surname, email, message, created_at, status)
-      VALUES (${name}, ${surname || ''}, ${email}, ${message}, NOW(), 'new')
-    `;
+    const client = createClient({
+      connectionString: process.env.POSTGRES_URL
+    });
+
+    try {
+      await client.connect();
+      await client.query(
+        'INSERT INTO contact_requests (name, surname, email, message, created_at, status) VALUES ($1, $2, $3, $4, NOW(), $5)',
+        [name, surname || '', email, message, 'new']
+      );
+      await client.end();
+      console.log('[API Contact] Salvataggio nel database completato');
+    } catch (dbError) {
+      console.error('[API Contact] ERRORE database:', dbError);
+      await client.end();
+      throw new Error(`Errore database: ${dbError.message}`);
+    }
+
+    console.log('[API Contact] Configurazione Nodemailer...');
 
     // Configura Nodemailer
     const transporter = nodemailer.createTransport({
@@ -48,6 +82,8 @@ export default async function handler(req, res) {
         pass: process.env.GMAIL_PASS
       }
     });
+
+    console.log('[API Contact] Tentativo di invio email...');
 
     // Invia email
     const mailOptions = {
@@ -65,7 +101,22 @@ export default async function handler(req, res) {
       `
     };
 
-    await transporter.sendMail(mailOptions);
+    try {
+      const info = await transporter.sendMail(mailOptions);
+      console.log('[API Contact] Email inviata con successo:', info.messageId);
+    } catch (emailError) {
+      console.error('[API Contact] ERRORE invio email:', emailError);
+      // L'email non è stata inviata ma il contatto è salvato nel database
+      // Possiamo comunque considerarlo un successo parziale
+      return res.status(200).json({
+        success: true,
+        warning: 'Richiesta salvata ma email non inviata',
+        message: 'La tua richiesta è stata registrata correttamente',
+        emailError: emailError.message
+      });
+    }
+
+    console.log('[API Contact] Processo completato con successo');
 
     res.status(200).json({
       success: true,
@@ -73,10 +124,14 @@ export default async function handler(req, res) {
     });
 
   } catch (error) {
-    console.error('Errore:', error);
-    res.status(500).json({
+    console.error('[API Contact] ERRORE GENERALE:', error);
+    console.error('[API Contact] Stack trace:', error.stack);
+
+    // Assicurati sempre di restituire JSON valido
+    return res.status(500).json({
       error: 'Errore durante l\'invio della richiesta',
-      details: error.message
+      details: error.message || 'Errore sconosciuto',
+      type: error.name || 'Error'
     });
   }
 }

@@ -1,4 +1,4 @@
-import { sql } from '@vercel/postgres';
+import { createClient } from '@vercel/postgres';
 import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
@@ -17,6 +17,10 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  const client = createClient({
+    connectionString: process.env.POSTGRES_URL
+  });
+
   try {
     // Verifica autenticazione
     const authHeader = req.headers.authorization;
@@ -34,11 +38,11 @@ export default async function handler(req, res) {
     }
 
     // Recupera i contatti dal database
-    const { rows } = await sql`
-      SELECT id, name, surname, email, message, created_at, status
-      FROM contact_requests
-      ORDER BY created_at DESC
-    `;
+    await client.connect();
+    const { rows } = await client.query(
+      'SELECT id, name, surname, email, message, created_at, status FROM contact_requests ORDER BY created_at DESC'
+    );
+    await client.end();
 
     res.status(200).json({
       success: true,
@@ -47,6 +51,7 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Errore:', error);
+    await client.end();
     res.status(500).json({
       error: 'Errore durante il recupero dei contatti',
       details: error.message
