@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Background circle -->
+  <circle cx="50" cy="50" r="48" fill="#DC2626"/>
+
+  <!-- Vintage car silhouette -->
+  <g fill="#FFFFFF">
+    <!-- Car body -->
+    <path d="M 25 55 L 30 45 L 40 42 L 50 40 L 60 42 L 70 45 L 75 55 Z"/>
+
+    <!-- Windshield -->
+    <path d="M 38 42 L 42 35 L 58 35 L 62 42 Z" fill="#FFFFFF" opacity="0.9"/>
+
+    <!-- Front wheel -->
+    <circle cx="35" cy="60" r="6" fill="#1a1a1a"/>
+    <circle cx="35" cy="60" r="3" fill="#FFFFFF"/>
+
+    <!-- Rear wheel -->
+    <circle cx="65" cy="60" r="6" fill="#1a1a1a"/>
+    <circle cx="65" cy="60" r="3" fill="#FFFFFF"/>
+
+    <!-- Headlight -->
+    <circle cx="24" cy="52" r="2" fill="#FFD700"/>
+
+    <!-- Details -->
+    <line x1="48" y1="42" x2="48" y2="35" stroke="#DC2626" stroke-width="1"/>
+    <line x1="52" y1="42" x2="52" y2="35" stroke="#DC2626" stroke-width="1"/>
+  </g>
+</svg>
