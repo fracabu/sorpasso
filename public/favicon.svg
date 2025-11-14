@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Vintage car outline - simple line drawing -->
-  <g fill="none" stroke="#1a1a1a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Vintage car outline - simple line drawing in brand red -->
+  <g fill="none" stroke="#DC2626" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
     <!-- Car body outline -->
     <path d="M 15 60 L 20 60 L 25 50 L 35 45 L 45 43 L 55 43 L 65 45 L 75 50 L 80 60 L 85 60"/>
 
