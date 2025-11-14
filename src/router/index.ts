@@ -1,7 +1,5 @@
 // src/router/index.ts
 import { createRouter, createWebHistory } from 'vue-router';
-import { auth } from '@/firebaseConfig';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
 import { i18n } from '@/i18n';
 import Home from '../views/Home.vue';
 import AdminLogin from '../views/admin/Login.vue';
@@ -17,6 +15,9 @@ import SuperCars from '../views/services/SuperCars.vue';
 import Privacy from '../views/Privacy.vue';
 import Cookie from '../views/Cookie.vue';
 import ContactPage from '../views/ContactPage.vue';
+// Import tour pages
+import ToursAutoItalia from '../views/tours/ToursAutoItalia.vue';
+import ToursVespeItalia from '../views/tours/ToursVespeItalia.vue';
 // Import vintage car subcategories
 import Anni1020 from '../views/services/vintage/Anni1020.vue';
 import Anni3040 from '../views/services/vintage/Anni3040.vue';
@@ -43,18 +44,18 @@ import MezziMilitariModerni from '../views/services/mezzi-militari/Moderni.vue';
 import BarcheYacht from '../views/services/mare-aria/BarcheYacht.vue';
 import ElicotteriAerei from '../views/services/mare-aria/ElicotteriAerei.vue';
 
-// Auth guard con Firebase
+// Auth guard con JWT
 const requireAuth = (to: any, from: any, next: any) => {
-  const unsubscribe = onAuthStateChanged(auth, user => {
-    unsubscribe();
+  const token = localStorage.getItem('admin_token');
+  const email = localStorage.getItem('admin_email');
 
-    if (!user || user.email !== 'fracabu@gmail.com') {
-      signOut(auth).catch(console.error);
-      return next('/admin/login');
-    }
+  if (!token || email !== 'fracabu@gmail.com') {
+    localStorage.removeItem('admin_token');
+    localStorage.removeItem('admin_email');
+    return next('/admin/login');
+  }
 
-    next();
-  });
+  next();
 };
 
 const router = createRouter({
@@ -231,6 +232,16 @@ const router = createRouter({
       path: '/contatti',
       name: 'contact',
       component: ContactPage,
+    },
+    {
+      path: '/tour/auto-italia',
+      name: 'tour-auto-italia',
+      component: ToursAutoItalia,
+    },
+    {
+      path: '/tour/vespe-italia',
+      name: 'tour-vespe-italia',
+      component: ToursVespeItalia,
     },
     {
       path: '/privacy-policy',

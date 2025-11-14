@@ -1,12 +1,6 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { auth } from '@/firebaseConfig'
-import { 
-  signInWithEmailAndPassword, 
-  onAuthStateChanged, 
-  signOut 
-} from 'firebase/auth'
 
 // dati reactive
 const router = useRouter()
@@ -16,16 +10,8 @@ const error = ref('')
 const loading = ref(false)
 const isDev = import.meta.env.DEV
 
-
-// pulisce token corrotti all'avvio
-onMounted(() => {
-  const unsubscribe = onAuthStateChanged(auth, user => {
-    unsubscribe()
-    // se c'è un errore di token, forziamo il logout
-    // (Firebase non espone esplicitamente messaggi su refresh token, 
-    // ma in DEV possiamo sempre pulire lo stato)
-  })
-})
+// API endpoint
+const API_URL = import.meta.env.VITE_API_URL || '/api'
 
 // handler per il login
 const handleLogin = async () => {
@@ -33,35 +19,37 @@ const handleLogin = async () => {
   error.value = ''
 
   try {
-    // tentativo di login con Firebase
-    const cred = await signInWithEmailAndPassword(auth, email.value, password.value)
+    // Chiamata API
+    const response = await fetch(`${API_URL}/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        email: email.value,
+        password: password.value
+      })
+    })
 
-    // controllo email admin
-    if (cred.user.email !== 'fracabu@gmail.com') {
-      // non autorizzato: logout e messaggio
-      await signOut(auth)
-      error.value = 'Accesso non autorizzato'
-      return
+    const data = await response.json()
+
+    if (!response.ok) {
+      throw new Error(data.error || 'Errore durante l\'accesso')
     }
+
+    // Salva il token JWT
+    localStorage.setItem('admin_token', data.token)
+    localStorage.setItem('admin_email', data.user.email)
 
     // tutto ok, redirigo
     await router.push('/admin/dashboard')
   } catch (err: any) {
     // mapping degli errori
-    console.error('Errore login Firebase:', err)
-    switch (err.code) {
-      case 'auth/network-request-failed':
-        error.value = 'Errore di connessione. Riprova più tardi.'
-        break
-      case 'auth/user-not-found':
-      case 'auth/wrong-password':
-        error.value = 'Email o password non corretti'
-        break
-      case 'auth/too-many-requests':
-        error.value = 'Troppi tentativi. Riprova tra qualche minuto.'
-        break
-      default:
-        error.value = 'Errore durante l\'accesso. Riprova.'
+    console.error('Errore login:', err)
+    if (err.message?.includes('fetch') || err.message?.includes('network')) {
+      error.value = 'Errore di connessione. Riprova più tardi.'
+    } else {
+      error.value = err.message || 'Email o password non corretti'
     }
   } finally {
     loading.value = false
@@ -71,7 +59,8 @@ const handleLogin = async () => {
 // funzione di debug per pulire lo stato auth
 const clearAuthState = async () => {
   try {
-    await signOut(auth)
+    localStorage.removeItem('admin_token')
+    localStorage.removeItem('admin_email')
     window.location.reload()
   } catch (e) {
     console.error('Errore pulizia auth:', e)

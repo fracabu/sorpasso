@@ -1,20 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { db, auth } from '@/firebaseConfig'
-import {
-  collection,
-  getDocs,
-  query,
-  orderBy,
-  doc,
-  updateDoc,
-  deleteDoc,
-  serverTimestamp
-} from 'firebase/firestore'
-import { signOut } from 'firebase/auth'
 
 const router = useRouter()
+
+// API endpoint
+const API_URL = import.meta.env.VITE_API_URL || '/api'
 
 // reactive state
 const requests = ref<any[]>([])
@@ -34,42 +25,59 @@ const stats = ref({
 async function fetchRequests() {
   loading.value = true
   try {
-    // prendo tutte le richieste, ordinate per data
-    const q = query(
-      collection(db, 'contact_requests'),
-      orderBy('created_at', 'desc')
-    )
-    const snap = await getDocs(q)
-    let data = snap.docs.map(d => {
-      const item = d.data() as any
-      return { id: d.id, ...item }
+    // Ottieni token JWT
+    const token = localStorage.getItem('admin_token')
+    if (!token) {
+      router.push('/admin/login')
+      return
+    }
+
+    // Chiamata API
+    const response = await fetch(`${API_URL}/contacts`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
     })
 
-    // filtro per stato
-    if (statusFilter.value !== 'all') {
-      data = data.filter(r => r.status === statusFilter.value)
+    if (!response.ok) {
+      if (response.status === 401) {
+        localStorage.removeItem('admin_token')
+        localStorage.removeItem('admin_email')
+        router.push('/admin/login')
+        return
+      }
+      throw new Error('Errore nel caricamento delle richieste')
     }
-    // filtro per ricerca (nome o email)
+
+    const data = await response.json()
+    let contacts = data.contacts || []
+
+    // Filtro per stato
+    if (statusFilter.value !== 'all') {
+      contacts = contacts.filter((r: any) => r.status === statusFilter.value)
+    }
+
+    // Filtro per ricerca (nome o email)
     if (searchQuery.value) {
       const term = searchQuery.value.toLowerCase()
-      data = data.filter(r =>
+      contacts = contacts.filter((r: any) =>
         r.name.toLowerCase().includes(term) ||
         r.email.toLowerCase().includes(term)
       )
     }
 
-    requests.value = data
+    requests.value = contacts
 
-    // calcolo statistiche
+    // Calcolo statistiche
     const todayStr = new Date().toDateString()
-    stats.value.total = data.length
-    stats.value.new = data.filter(r => r.status === 'new').length
-    stats.value.inProgress = data.filter(r => r.status === 'in-progress').length
-    stats.value.completed = data.filter(r => r.status === 'completed').length
-    stats.value.todayCount = data.filter(r => {
-      const created = r.created_at?.toDate
-        ? r.created_at.toDate().toDateString()
-        : new Date(r.created_at).toDateString()
+    stats.value.total = contacts.length
+    stats.value.new = contacts.filter((r: any) => r.status === 'new').length
+    stats.value.inProgress = contacts.filter((r: any) => r.status === 'in-progress').length
+    stats.value.completed = contacts.filter((r: any) => r.status === 'completed').length
+    stats.value.todayCount = contacts.filter((r: any) => {
+      const created = new Date(r.created_at).toDateString()
       return created === todayStr
     }).length
 
@@ -82,24 +90,57 @@ async function fetchRequests() {
 
 async function updateStatus(id: string, status: string) {
   try {
-    const refDoc = doc(db, 'contact_requests', id)
-    await updateDoc(refDoc, {
-      status,
-      updated_at: serverTimestamp()
+    const token = localStorage.getItem('admin_token')
+    if (!token) {
+      router.push('/admin/login')
+      return
+    }
+
+    const response = await fetch(`${API_URL}/contacts/${id}`, {
+      method: 'PATCH',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ status })
     })
+
+    if (!response.ok) {
+      throw new Error('Errore aggiornamento status')
+    }
+
     await fetchRequests()
   } catch (err) {
     console.error('Errore aggiornamento status:', err)
+    alert('⚠️ Funzionalità temporaneamente non disponibile')
   }
 }
 
 async function deleteRequest(id: string) {
   if (!confirm('Sei sicuro di voler eliminare questa richiesta?')) return
   try {
-    await deleteDoc(doc(db, 'contact_requests', id))
+    const token = localStorage.getItem('admin_token')
+    if (!token) {
+      router.push('/admin/login')
+      return
+    }
+
+    const response = await fetch(`${API_URL}/contacts/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+
+    if (!response.ok) {
+      throw new Error('Errore eliminazione richiesta')
+    }
+
     await fetchRequests()
   } catch (err) {
     console.error('Errore eliminazione richiesta:', err)
+    alert('⚠️ Funzionalità temporaneamente non disponibile')
   }
 }
 
@@ -112,10 +153,11 @@ function goToEmailDebug() {
 
 async function logout() {
   try {
-    await signOut(auth)
+    localStorage.removeItem('admin_token')
+    localStorage.removeItem('admin_email')
     router.push('/admin/login')
   } catch (err) {
-    console.error('Errore logout Firebase:', err)
+    console.error('Errore logout:', err)
   }
 }
 
@@ -256,7 +298,7 @@ onMounted(fetchRequests)
           </div>
           <p class="text-zinc-300 mb-4">{{ r.message }}</p>
           <div class="text-sm text-zinc-500">
-            Creato il: {{ new Date(r.created_at?.toDate?.().getTime() || r.created_at).toLocaleString('it-IT') }}
+            Creato il: {{ new Date(r.created_at).toLocaleString('it-IT') }}
           </div>
         </div>
       </div>

@@ -86,6 +86,18 @@
     },
     "tour": {
       "title": "Tour in Italia",
+      "categories": {
+        "auto": {
+          "title": "TOURS IN AUTO",
+          "subtitle": "Esperienze indimenticabili su quattro ruote",
+          "description": "Scopri l'Italia a bordo di auto d'epoca e supercar"
+        },
+        "vespe": {
+          "title": "TOURS IN VESPA",
+          "subtitle": "Viaggi vintage su due ruote",
+          "description": "Esplora le bellezze italiane in Vespa"
+        }
+      },
       "locations": {
         "amalfi": {
           "title": "Costa Amalfitana",
@@ -110,6 +122,28 @@
       }
     }
   },
+  "tour": {
+    "auto": {
+      "title": "Tours in Auto d'Epoca",
+      "subtitle": "Esperienze indimenticabili su quattro ruote",
+      "backToTours": "Torna ai Tour",
+      "gridTitle": "Scopri i nostri Tour in Auto",
+      "gridDescription": "Vivi un'esperienza unica alla guida di auto d'epoca attraverso i paesaggi più suggestivi d'Italia. Tour personalizzati per gruppi e privati.",
+      "ctaTitle": "Prenota il tuo Tour",
+      "ctaDescription": "Contattaci per organizzare il tuo tour personalizzato in auto d'epoca. Il nostro team è a tua disposizione per creare un'esperienza su misura.",
+      "ctaButton": "Richiedi Informazioni"
+    },
+    "vespe": {
+      "title": "Tours in Vespa",
+      "subtitle": "Scopri l'Italia su due ruote vintage",
+      "backToTours": "Torna ai Tour",
+      "gridTitle": "Scopri i nostri Tour in Vespa",
+      "gridDescription": "Esplora le città e i paesaggi più belli d'Italia a bordo di Vespe storiche. Tour guidati e personalizzati per un'esperienza autentica.",
+      "ctaTitle": "Prenota il tuo Tour in Vespa",
+      "ctaDescription": "Contattaci per organizzare il tuo tour personalizzato in Vespa. Vivi l'Italia con stile e autenticità.",
+      "ctaButton": "Richiedi Informazioni"
+    }
+  },
   "why": {
     "title": "Perché Scegliere Noi",
     "features": {
@@ -132,21 +166,41 @@
   },
   "contact": {
     "title": "Contattaci",
-    "subtitle": "Siamo qui per aiutarti a trovare il veicolo perfetto per il tuo progetto",
+    "subtitle": "Compilando il form descrivendoci il tuo progetto o per chiedere qualsiasi informazione sul noleggio dei mezzi.",
     "form": {
       "name": "Nome",
+      "surname": "Cognome",
       "email": "Email",
       "message": "Messaggio",
       "namePlaceholder": "Il tuo nome",
+      "surnamePlaceholder": "Il tuo cognome",
       "emailPlaceholder": "La tua email",
       "messagePlaceholder": "Descrivi il tuo progetto o la tua richiesta...",
+      "minLength": "Minimo 10 caratteri",
+      "privacy": "Accetto l'<link>informativa sulla privacy</link> e autorizzo il trattamento dei miei dati personali per rispondere alla mia richiesta.",
       "submit": "Invia Richiesta",
       "sending": "Invio in corso...",
       "error": "Si è verificato un errore durante l'invio della richiesta",
+      "errorPersist": "Se persiste, contatta Lorenzo direttamente.",
       "success": {
-        "title": "Grazie per averci contattato!",
-        "message": "La tua richiesta è stata inviata con successo. Ti risponderemo al più presto all'indirizzo email fornito."
+        "title": "Perfetto! La tua richiesta è stata inviata.",
+        "message": "Lorenzo riceverà un'email con i tuoi dettagli. Controlla anche la tua casella!"
+      },
+      "validation": {
+        "nameRequired": "Il nome è obbligatorio",
+        "emailRequired": "L'email è obbligatoria",
+        "messageRequired": "Il messaggio è obbligatorio",
+        "messageMinLength": "Il messaggio deve essere di almeno 10 caratteri",
+        "privacyRequired": "Devi accettare l'informativa sulla privacy per continuare",
+        "emailInvalid": "Inserisci un indirizzo email valido",
+        "networkError": "Errore di rete. Controlla la connessione e riprova.",
+        "timeoutError": "La connessione è troppo lenta. Riprova più tardi."
       }
+    },
+    "info": {
+      "phone": "Telefono",
+      "email": "Email",
+      "address": "Indirizzo"
     }
   },
   "footer": {

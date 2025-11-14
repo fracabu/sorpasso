@@ -1,19 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { db, auth } from '@/firebaseConfig'
-import {
-  collection,
-  getDocs,
-  query,
-  orderBy,
-  limit,
-  addDoc,
-  serverTimestamp
-} from 'firebase/firestore'
-import { signOut } from 'firebase/auth'
 
 const router = useRouter()
+
+// API endpoint
+const API_URL = import.meta.env.VITE_API_URL || '/api'
 
 // reactive state
 const latestRequests = ref<any[]>([])
@@ -34,66 +26,65 @@ const systemStatus = ref({
 async function checkDatabaseStatus() {
   loading.value = true
   try {
-    // 1) Preleva ultime 10 richieste
-    const reqSnap = await getDocs(
-      query(
-        collection(db, 'contact_requests'),
-        orderBy('created_at', 'desc'),
-        limit(10)
-      )
-    )
-    let requests = reqSnap.docs.map(d => {
-      const data = d.data()
-      return {
-        id: d.id,
-        name: data.name,
-        surname: data.surname,
-        email: data.email,
-        message: data.message,
-        status: data.status,
-        privacy_accepted: data.privacy_accepted,
-        created_at: data.created_at,
+    // Ottieni token
+    const token = localStorage.getItem('admin_token')
+
+    if (!token) {
+      router.push('/admin/login')
+      return
+    }
+
+    // Chiamata API
+    const response = await fetch(`${API_URL}/contacts`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
       }
     })
 
+    if (!response.ok) {
+      if (response.status === 401) {
+        localStorage.removeItem('admin_token')
+        localStorage.removeItem('admin_email')
+        router.push('/admin/login')
+        return
+      }
+      throw new Error('Errore nel caricamento dei contatti')
+    }
+
+    const data = await response.json()
+    let requests = data.contacts || []
+
     // Filtri client-side
     if (statusFilter.value !== 'all') {
-      requests = requests.filter(r => r.status === statusFilter.value)
+      requests = requests.filter((r: any) => r.status === statusFilter.value)
     }
     if (searchQuery.value) {
       const term = searchQuery.value.toLowerCase()
-      requests = requests.filter(r =>
+      requests = requests.filter((r: any) =>
         r.name.toLowerCase().includes(term) ||
         r.email.toLowerCase().includes(term)
       )
     }
     latestRequests.value = requests
 
-    // 2) Preleva ultimi 20 log email
-    const logSnap = await getDocs(
-      query(
-        collection(db, 'email_logs'),
-        orderBy('sent_at', 'desc'),
-        limit(20)
-      )
-    )
-    const logs = logSnap.docs.map(d => ({ id: d.id, ...(d.data() as any) }))
-    emailLogs.value = logs
+    // Email logs non più disponibili (migrati da Firebase)
+    emailLogs.value = []
 
-    // 3) Calcola le statistiche
+    // Calcola le statistiche
     const todayStr = new Date().toDateString()
     const total    = requests.length
-    const todayCnt = requests.filter(r =>
-      new Date(r.created_at?.toDate?.()?.toDateString() || r.created_at).toDateString() === todayStr
-    ).length
-    const sent     = logs.filter(l => l.email_sent).length
-    const failed   = logs.filter(l => !l.email_sent).length
+    const todayCnt = requests.filter(r => {
+      const date = new Date(r.created_at)
+      return date.toDateString() === todayStr
+    }).length
 
     systemStatus.value = {
       totalRequests: total,
       todayRequests: todayCnt,
-      emailsSent:    sent,
-      emailsFailed:  failed,
+      emailsSent:    0, // Non più tracciato
+      emailsFailed:  0, // Non più tracciato
       lastRequest:   requests[0] || null
     }
   } catch (err: any) {
@@ -106,21 +97,33 @@ async function checkDatabaseStatus() {
 async function testEmailSystem() {
   loading.value = true
   try {
-    const docRef = await addDoc(
-      collection(db, 'contact_requests'),
-      {
-        name:             'Test Sistema',
-        surname:          'Database',
-        email:            'test@ilsorpasso.it',
-        message:          `Test del sistema email automatico — ${new Date().toLocaleString('it-IT')}`,
-        status:           'new',
-        privacy_accepted: true,
-        created_at:       serverTimestamp()
-      }
-    )
+    const token = localStorage.getItem('admin_token')
+    if (!token) {
+      router.push('/admin/login')
+      return
+    }
+
+    // Invia richiesta di test tramite API
+    const response = await fetch(`${API_URL}/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: 'Test Sistema',
+        surname: 'Database',
+        email: 'test@ilsorpasso.it',
+        message: `Test del sistema email automatico — ${new Date().toLocaleString('it-IT')}`
+      })
+    })
+
+    if (!response.ok) {
+      throw new Error('Errore nel test del sistema')
+    }
+
     alert(
-      `✅ Test inserito nel database!\nID: ${docRef.id}\n` +
-      `Se il trigger SQL funziona, Lorenzo riceverà un'email entro 1 minuto.`
+      `✅ Test inviato!\n` +
+      `Se il sistema funziona, Lorenzo riceverà un'email entro 1 minuto.`
     )
     await checkDatabaseStatus()
   } catch (err: any) {
@@ -137,10 +140,11 @@ function goToDashboard() {
 
 async function logout() {
   try {
-    await signOut(auth)
+    localStorage.removeItem('admin_token')
+    localStorage.removeItem('admin_email')
     router.push('/admin/login')
   } catch (err) {
-    console.error('Errore logout Firebase:', err)
+    console.error('Errore logout:', err)
   }
 }
 
@@ -236,7 +240,7 @@ onMounted(checkDatabaseStatus)
                   {{ r.status.toUpperCase() }}
                 </span>
                 <p class="text-xs text-zinc-500 mt-1">
-                  {{ new Date(r.created_at.toDate?.() || r.created_at).toLocaleString('it-IT') }}
+                  {{ new Date(r.created_at).toLocaleString('it-IT') }}
                 </p>
               </div>
             </div>
@@ -270,7 +274,7 @@ onMounted(checkDatabaseStatus)
                 </span>
               </div>
               <span class="text-xs text-zinc-500">
-                {{ new Date(log.sent_at.toDate?.() || log.sent_at).toLocaleString('it-IT') }}
+                {{ new Date(log.sent_at).toLocaleString('it-IT') }}
               </span>
             </div>
             <div v-if="log.error_message" class="mt-2 text-sm text-zinc-400">

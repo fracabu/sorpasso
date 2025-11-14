@@ -86,28 +86,40 @@
     },
     "tour": {
       "title": "Tour in Italy",
-      "locations": {
-        "amalfi": {
-          "title": "Amalfi Coast",
-          "description": "Breathtaking scenery along the coast"
+      "categories": {
+        "auto": {
+          "title": "CAR TOURS",
+          "subtitle": "Unforgettable experiences on four wheels",
+          "description": "Discover Italy aboard vintage cars and supercars"
         },
-        "tuscany": {
-          "title": "Tuscany",
-          "description": "Scenic roads through hills and vineyards"
-        },
-        "como": {
-          "title": "Lake Como",
-          "description": "Exclusive locations on the lake"
-        },
-        "sicily": {
-          "title": "Sicily",
-          "description": "Between history and crystal clear sea"
-        },
-        "dolomites": {
-          "title": "Dolomites",
-          "description": "Breathtaking alpine routes"
+        "vespe": {
+          "title": "VESPA TOURS",
+          "subtitle": "Vintage journeys on two wheels",
+          "description": "Explore Italian beauties on Vespa"
         }
       }
+    }
+  },
+  "tour": {
+    "auto": {
+      "title": "Vintage Car Tours",
+      "subtitle": "Unforgettable experiences on four wheels",
+      "backToTours": "Back to Tours",
+      "gridTitle": "Discover our Car Tours",
+      "gridDescription": "Live a unique experience driving vintage cars through Italy's most scenic landscapes. Customized tours for groups and individuals.",
+      "ctaTitle": "Book your Tour",
+      "ctaDescription": "Contact us to organize your personalized vintage car tour. Our team is at your disposal to create a tailor-made experience.",
+      "ctaButton": "Request Information"
+    },
+    "vespe": {
+      "title": "Vespa Tours",
+      "subtitle": "Discover Italy on vintage two wheels",
+      "backToTours": "Back to Tours",
+      "gridTitle": "Discover our Vespa Tours",
+      "gridDescription": "Explore Italy's most beautiful cities and landscapes aboard historic Vespas. Guided and personalized tours for an authentic experience.",
+      "ctaTitle": "Book your Vespa Tour",
+      "ctaDescription": "Contact us to organize your personalized Vespa tour. Experience Italy with style and authenticity.",
+      "ctaButton": "Request Information"
     }
   },
   "why": {
@@ -132,21 +144,41 @@
   },
   "contact": {
     "title": "Contact Us",
-    "subtitle": "We're here to help you find the perfect vehicle for your project",
+    "subtitle": "Fill out the form to describe your project or ask for any information about vehicle rental.",
     "form": {
       "name": "Name",
+      "surname": "Surname",
       "email": "Email",
       "message": "Message",
       "namePlaceholder": "Your name",
+      "surnamePlaceholder": "Your surname",
       "emailPlaceholder": "Your email",
       "messagePlaceholder": "Describe your project or request...",
+      "minLength": "Minimum 10 characters",
+      "privacy": "I accept the <link>privacy policy</link> and authorize the processing of my personal data to respond to my request.",
       "submit": "Send Request",
       "sending": "Sending...",
       "error": "An error occurred while sending the request",
+      "errorPersist": "If it persists, contact Lorenzo directly.",
       "success": {
-        "title": "Thank you for contacting us!",
-        "message": "Your request has been sent successfully. We will respond to the email address provided as soon as possible."
+        "title": "Perfect! Your request has been sent.",
+        "message": "Lorenzo will receive an email with your details. Check your inbox too!"
+      },
+      "validation": {
+        "nameRequired": "Name is required",
+        "emailRequired": "Email is required",
+        "messageRequired": "Message is required",
+        "messageMinLength": "Message must be at least 10 characters",
+        "privacyRequired": "You must accept the privacy policy to continue",
+        "emailInvalid": "Please enter a valid email address",
+        "networkError": "Network error. Check your connection and try again.",
+        "timeoutError": "Connection is too slow. Please try again later."
       }
+    },
+    "info": {
+      "phone": "Phone",
+      "email": "Email",
+      "address": "Address"
     }
   },
   "footer": {

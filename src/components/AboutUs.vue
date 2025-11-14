@@ -9,7 +9,7 @@ const scrollToContact = () => {
 </script>
 
 <template>
-  <section id="chi-siamo" class="bg-zinc-900 flex items-center">
+  <section id="chi-siamo" class="min-h-screen bg-zinc-900 flex items-center py-24">
     <div class="container">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <!-- Left Column: Content -->

@@ -1,17 +1,11 @@
 <script setup lang="ts">
 import { ref } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { db } from '@/firebaseConfig'
-import {
-  collection,
-  addDoc,
-  serverTimestamp,
-  getDocs,
-  query,
-  limit
-} from 'firebase/firestore'
 
 const { t } = useI18n()
+
+// API endpoint
+const API_URL = import.meta.env.VITE_API_URL || '/api'
 
 
 
@@ -44,45 +38,47 @@ const handleSubmit = async (e: Event) => {
   try {
     // Validazione lato client
     if (!form.value.name.trim()) {
-      throw new Error('Il nome è obbligatorio')
+      throw new Error(t('contact.form.validation.nameRequired'))
     }
     if (!form.value.email.trim()) {
-      throw new Error('L\'email è obbligatoria')
+      throw new Error(t('contact.form.validation.emailRequired'))
     }
     if (!form.value.message.trim()) {
-      throw new Error('Il messaggio è obbligatorio')
+      throw new Error(t('contact.form.validation.messageRequired'))
     }
     if (form.value.message.trim().length < 10) {
-      throw new Error('Il messaggio deve essere di almeno 10 caratteri')
+      throw new Error(t('contact.form.validation.messageMinLength'))
     }
     if (!form.value.privacy_accepted) {
-      throw new Error('Devi accettare l\'informativa sulla privacy per continuare')
+      throw new Error(t('contact.form.validation.privacyRequired'))
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!emailRegex.test(form.value.email.trim())) {
-      throw new Error('Inserisci un indirizzo email valido')
+      throw new Error(t('contact.form.validation.emailInvalid'))
     }
-
-    // (Opzionale) Test di connessione a Firestore
-    const testQ = query(
-      collection(db, 'contact_requests'),
-      limit(1)
-    )
-    await getDocs(testQ)
 
     // Prepara i dati per l'invio
     const contactData = {
-      name:             form.value.name.trim(),
-      surname:          form.value.surname.trim() || null,
-      email:            form.value.email.toLowerCase().trim(),
-      message:          form.value.message.trim(),
-      status:           'new',
-      privacy_accepted: true,
-      created_at:       serverTimestamp()
+      name:    form.value.name.trim(),
+      surname: form.value.surname.trim() || '',
+      email:   form.value.email.toLowerCase().trim(),
+      message: form.value.message.trim()
     }
 
-    // Inserimento in Firestore
-    await addDoc(collection(db, 'contact_requests'), contactData)
+    // Chiamata API
+    const response = await fetch(`${API_URL}/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(contactData)
+    })
+
+    const data = await response.json()
+
+    if (!response.ok) {
+      throw new Error(data.error || t('contact.form.error'))
+    }
 
     success.value = true
     // reset del form
@@ -101,12 +97,10 @@ const handleSubmit = async (e: Event) => {
 
   } catch (err: any) {
     // Mapping degli errori
-    if (err.message?.includes('Timeout')) {
-      error.value = 'La connessione è troppo lenta. Riprova più tardi.'
-    } else if (err.message?.includes('network')) {
-      error.value = 'Errore di rete. Controlla la connessione e riprova.'
+    if (err.message?.includes('fetch') || err.message?.includes('network')) {
+      error.value = t('contact.form.validation.networkError')
     } else {
-      error.value = err.message || 'Si è verificato un errore. Riprova più tardi.'
+      error.value = err.message || t('contact.form.error')
     }
     console.error('Errore invio contatto:', err)
   } finally {
@@ -116,7 +110,7 @@ const handleSubmit = async (e: Event) => {
 </script>
 
 <template>
-  <section id="contattaci" class="relative bg-black flex items-center py-20">
+  <section id="contattaci" class="min-h-screen relative bg-black flex items-center py-24">
     <div class="container relative z-10">
       <!-- Layout a tre colonne -->
       <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
@@ -125,8 +119,8 @@ const handleSubmit = async (e: Event) => {
              style="background-image: url('/bg-col1.png')" data-aos="fade-up">
           <div class="absolute inset-0 bg-black/60 rounded-2xl"></div>
           <div class="relative z-10">
-            <h2 class="text-3xl font-bold mb-4 text-white">Contattaci</h2>
-            <p class="text-zinc-200 text-lg">Compilando il form descrivendoci il tuo progetto o per chiedere qualsiasi informazione sul noleggio dei mezzi.</p>
+            <h2 class="text-3xl font-bold mb-4 text-white">{{ t('contact.title') }}</h2>
+            <p class="text-zinc-200 text-lg">{{ t('contact.subtitle') }}</p>
           </div>
         </div>
 
@@ -142,9 +136,9 @@ const handleSubmit = async (e: Event) => {
                       clip-rule="evenodd"/>
               </svg>
               <div>
-                <p class="text-green-400 font-medium">✅ Perfetto! La tua richiesta è stata inviata.</p>
+                <p class="text-green-400 font-medium">✅ {{ t('contact.form.success.title') }}</p>
                 <p class="text-green-300 text-sm mt-1">
-                  Lorenzo riceverà un'email con i tuoi dettagli. Controlla anche la tua casella!
+                  {{ t('contact.form.success.message') }}
                 </p>
               </div>
             </div>
@@ -166,7 +160,7 @@ const handleSubmit = async (e: Event) => {
               <div>
                 <p class="text-red-400 font-medium">{{ error }}</p>
                 <p class="text-red-300 text-sm mt-1">
-                  Se persiste, contatta Lorenzo direttamente.
+                  {{ t('contact.form.errorPersist') }}
                 </p>
               </div>
             </div>
@@ -179,7 +173,7 @@ const handleSubmit = async (e: Event) => {
             <!-- Nome / Cognome -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
               <div>
-                <label for="name" class="block text-sm font-medium text-zinc-300 mb-2">Nome *</label>
+                <label for="name" class="block text-sm font-medium text-zinc-300 mb-2">{{ t('contact.form.name') }} *</label>
                 <input
                   id="name"
                   v-model="form.name"
@@ -187,14 +181,14 @@ const handleSubmit = async (e: Event) => {
                   required
                   :disabled="loading"
                   autocomplete="given-name"
-                  class="w-full px-3 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg 
-                         text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 
+                  class="w-full px-3 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg
+                         text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500
                          disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                  placeholder="Il tuo nome"
+                  :placeholder="t('contact.form.namePlaceholder')"
                 />
               </div>
               <div>
-                <label for="surname" class="block text-sm font-medium text-zinc-300 mb-2">Cognome</label>
+                <label for="surname" class="block text-sm font-medium text-zinc-300 mb-2">{{ t('contact.form.surname') }}</label>
                 <input
                   id="surname"
                   v-model="form.surname"
@@ -202,16 +196,16 @@ const handleSubmit = async (e: Event) => {
                   :disabled="loading"
                   autocomplete="family-name"
                   class="w-full px-3 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg
-                         text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 
+                         text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500
                          disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                  placeholder="Il tuo cognome"
+                  :placeholder="t('contact.form.surnamePlaceholder')"
                 />
               </div>
             </div>
 
             <!-- Email -->
             <div>
-              <label for="email" class="block text-sm font-medium text-zinc-300 mb-2">Email *</label>
+              <label for="email" class="block text-sm font-medium text-zinc-300 mb-2">{{ t('contact.form.email') }} *</label>
               <input
                 id="email"
                 v-model="form.email"
@@ -220,15 +214,15 @@ const handleSubmit = async (e: Event) => {
                 :disabled="loading"
                 autocomplete="email"
                 class="w-full px-3 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg
-                       text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 
+                       text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500
                        disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                placeholder="La tua email"
+                :placeholder="t('contact.form.emailPlaceholder')"
               />
             </div>
 
             <!-- Messaggio -->
             <div>
-              <label for="message" class="block text-sm font-medium text-zinc-300 mb-2">Messaggio *</label>
+              <label for="message" class="block text-sm font-medium text-zinc-300 mb-2">{{ t('contact.form.message') }} *</label>
               <textarea
                 id="message"
                 v-model="form.message"
@@ -236,12 +230,12 @@ const handleSubmit = async (e: Event) => {
                 required
                 :disabled="loading"
                 class="w-full px-3 py-2 bg-zinc-800/50 border border-zinc-700 rounded-lg
-                       text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500 
+                       text-white placeholder-zinc-400 focus:outline-none focus:ring-2 focus:ring-red-500
                        resize-none disabled:opacity-50 disabled:cursor-not-allowed text-sm"
-                placeholder="Descrivi il tuo progetto o la tua richiesta..."
+                :placeholder="t('contact.form.messagePlaceholder')"
               ></textarea>
               <div class="flex justify-between mt-2 text-sm text-zinc-400">
-                <span>Minimo 10 caratteri</span>
+                <span>{{ t('contact.form.minLength') }}</span>
                 <span>{{ form.message.length }}/2000</span>
               </div>
             </div>
@@ -254,12 +248,11 @@ const handleSubmit = async (e: Event) => {
                 type="checkbox"
                 required
                 :disabled="loading"
-                class="mt-1 w-5 h-5 text-red-600 bg-zinc-800 border-zinc-600 rounded 
+                class="mt-1 w-5 h-5 text-red-600 bg-zinc-800 border-zinc-600 rounded
                        focus:ring-red-500 focus:ring-2 disabled:opacity-50 disabled:cursor-not-allowed"
               />
               <label for="privacy" class="text-sm text-zinc-300 leading-relaxed">
-                Accetto l'<router-link to="/privacy-policy" class="text-red-400 hover:underline" target="_blank">informativa sulla privacy</router-link> e autorizzo il trattamento dei miei dati personali
-                per rispondere alla mia richiesta. *
+                <span v-html="t('contact.form.privacy').replace('<link>', '<router-link to=\'/privacy-policy\' class=\'text-red-400 hover:underline\' target=\'_blank\'>').replace('</link>', '</router-link>')"></span> *
               </label>
             </div>
 
@@ -267,10 +260,10 @@ const handleSubmit = async (e: Event) => {
             <button
               type="submit"
               :disabled="loading || !form.privacy_accepted"
-              class="w-full bg-gradient-to-r from-red-600 to-red-700 
-                     hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 px-6 
-                     rounded-lg transition-all duration-200 transform hover:scale-[1.02] 
-                     focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 
+              class="w-full bg-gradient-to-r from-red-600 to-red-700
+                     hover:from-red-700 hover:to-red-800 text-white font-semibold py-3 px-6
+                     rounded-lg transition-all duration-200 transform hover:scale-[1.02]
+                     focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2
                      focus:ring-offset-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               <span v-if="loading" class="flex items-center justify-center">
@@ -278,9 +271,9 @@ const handleSubmit = async (e: Event) => {
                   <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                   <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"></path>
                 </svg>
-                Invio in corso...
+                {{ t('contact.form.sending') }}
               </span>
-              <span v-else>📧 Invia Richiesta</span>
+              <span v-else>📧 {{ t('contact.form.submit') }}</span>
             </button>
           </form>
         </div>
@@ -295,13 +288,13 @@ const handleSubmit = async (e: Event) => {
             <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1
                          0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257
-                         a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 
+                         a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2
                          0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold mb-2 text-white">Telefono</h3>
+            <h3 class="text-lg font-semibold mb-2 text-white">{{ t('contact.info.phone') }}</h3>
             <p class="text-zinc-200">+39 347 395 2838</p>
           </div>
           <!-- Email -->
@@ -309,12 +302,12 @@ const handleSubmit = async (e: Event) => {
             <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 
-                         19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5
+                         19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2
                          0 00-2 2v10a2 2 0 002 2z"/>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold mb-2 text-white">Email</h3>
+            <h3 class="text-lg font-semibold mb-2 text-white">{{ t('contact.info.email') }}</h3>
             <p class="text-zinc-200">ilsorpassodilorenzobasile@gmail.com</p>
           </div>
           <!-- Indirizzo -->
@@ -322,14 +315,14 @@ const handleSubmit = async (e: Event) => {
             <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
               <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                      d="M17.657 16.657L13.414 20.9a1.998 
-                         1.998 0 01-2.827 0l-4.244-4.243a8 
-                         8 0 1111.314 0z"/><path stroke-linecap="round" 
+                      d="M17.657 16.657L13.414 20.9a1.998
+                         1.998 0 01-2.827 0l-4.244-4.243a8
+                         8 0 1111.314 0z"/><path stroke-linecap="round"
                          stroke-linejoin="round" stroke-width="2"
                       d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
               </svg>
             </div>
-            <h3 class="text-lg font-semibold mb-2 text-white">Indirizzo</h3>
+            <h3 class="text-lg font-semibold mb-2 text-white">{{ t('contact.info.address') }}</h3>
             <p class="text-zinc-200">Via Suor Celestina Donati 90<br>00167 Roma, Italia</p>
           </div>
           </div>

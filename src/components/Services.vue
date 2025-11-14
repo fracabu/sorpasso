@@ -62,31 +62,20 @@ const vehicleCategories = [
   }
 ]
 
-const tourImages = [
-  { 
-    url: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963',
-    title: t('services.tour.locations.amalfi.title'),
-    description: t('services.tour.locations.amalfi.description')
+const tourCategories = [
+  {
+    title: t('services.tour.categories.auto.title'),
+    subtitle: t('services.tour.categories.auto.subtitle'),
+    description: t('services.tour.categories.auto.description'),
+    bgImage: '/images/Tours%20Auto/PHOTO-2025-09-19-20-38-43.jpg',
+    route: '/tour/auto-italia'
   },
-  { 
-    url: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b',
-    title: t('services.tour.locations.tuscany.title'),
-    description: t('services.tour.locations.tuscany.description')
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1534445867742-43195f401b6c',
-    title: t('services.tour.locations.como.title'),
-    description: t('services.tour.locations.como.description')
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1499678329028-101435549a4e',
-    title: t('services.tour.locations.sicily.title'),
-    description: t('services.tour.locations.sicily.description')
-  },
-  { 
-    url: 'https://images.unsplash.com/photo-1537799943037-f5da89a65689',
-    title: t('services.tour.locations.dolomites.title'),
-    description: t('services.tour.locations.dolomites.description')
+  {
+    title: t('services.tour.categories.vespe.title'),
+    subtitle: t('services.tour.categories.vespe.subtitle'),
+    description: t('services.tour.categories.vespe.description'),
+    bgImage: '/images/Tours%20Vespe/PHOTO-2025-09-19-20-42-59.jpg',
+    route: '/tour/vespe-italia'
   }
 ]
 
@@ -95,7 +84,7 @@ const tourImages = [
 
 <template>
   <!-- Services Section -->
-  <section id="servizi" class="bg-black flex items-center">
+  <section id="servizi" class="min-h-screen bg-black flex items-center py-24">
     <div class="container">
       <h2 
         class="text-4xl md:text-5xl font-bold mb-16 text-center"
@@ -173,55 +162,48 @@ const tourImages = [
   </section>
 
   <!-- Tour in Italia -->
-  <section id="tour" class="bg-black flex items-center">
+  <section id="tour" class="bg-black flex items-center py-24">
     <div class="container">
-      <h2 
+      <h2
         class="text-4xl md:text-5xl font-bold mb-16 text-center"
         data-aos="fade-up"
       >
         {{ t('services.tour.title') }}
       </h2>
-      <div data-aos="fade-up" data-aos-delay="200">
-            <swiper
-              :modules="[Autoplay, Navigation, Pagination]"
-              :slides-per-view="1"
-              :breakpoints="{
-                '640': {
-                  slidesPerView: 2,
-                  spaceBetween: 20
-                },
-                '1024': {
-                  slidesPerView: 3,
-                  spaceBetween: 30
-                }
-              }"
-              :space-between="30"
-              :navigation="true"
-              :pagination="{ clickable: true }"
-              :autoplay="{
-                delay: 3000,
-                disableOnInteraction: false
-              }"
-              class="tour-swiper"
-            >
-              <swiper-slide 
-                v-for="image in tourImages" 
-                :key="image.title"
-                class="pb-12"
-              >
-                <div class="relative group overflow-hidden rounded-lg h-[200px] md:h-[240px]">
-                  <img 
-                    :src="image.url" 
-                    :alt="image.title"
-                    class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent flex flex-col items-center justify-end p-6 text-center">
-                    <h4 class="text-xl font-bold text-white mb-2">{{ image.title }}</h4>
-                    <p class="text-white/80 text-sm">{{ image.description }}</p>
-                  </div>
-                </div>
-              </swiper-slide>
-            </swiper>
+
+      <!-- Tour Categories Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+        <router-link
+          v-for="category in tourCategories"
+          :key="category.title"
+          :to="category.route"
+          class="relative group cursor-pointer h-[400px] rounded-2xl overflow-hidden block shadow-lg hover:shadow-2xl transition-all duration-300"
+        >
+          <!-- Background Image -->
+          <div
+            class="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
+            :style="{ backgroundImage: `url(${category.bgImage})` }"
+          ></div>
+
+          <!-- Overlay -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent"></div>
+
+          <!-- Card Content -->
+          <div class="relative h-full p-8 flex flex-col justify-end text-center">
+            <!-- Title -->
+            <h3 class="text-3xl font-bold mb-3 text-white group-hover:text-accent transition-colors duration-300">
+              {{ category.title }}
+            </h3>
+
+            <!-- Subtitle -->
+            <p class="text-accent font-semibold mb-4 text-lg">{{ category.subtitle }}</p>
+
+            <!-- Description -->
+            <p class="text-white/90 text-base">
+              {{ category.description }}
+            </p>
+          </div>
+        </router-link>
       </div>
     </div>
   </section>

@@ -1,19 +1,11 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
-import { db, auth } from '@/firebaseConfig'
-import {
-  collection,
-  getDocs,
-  query,
-  orderBy,
-  limit,
-  addDoc,
-  serverTimestamp
-} from 'firebase/firestore'
-import { signOut } from 'firebase/auth'
 
 const router = useRouter()
+
+// API endpoint
+const API_URL = import.meta.env.VITE_API_URL || '/api'
 const loading = ref(false)
 const testResult = ref('')
 const emailLogs = ref<any[]>([])
@@ -28,29 +20,46 @@ const systemStatus = ref({
 async function checkSystemStatus() {
   loading.value = true
   try {
+    const token = localStorage.getItem('admin_token')
+    if (!token) {
+      router.push('/admin/login')
+      return
+    }
+
+    // Recupera richieste da API
+    const response = await fetch(`${API_URL}/contacts`, {
+      method: 'GET',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json'
+      }
+    })
+
+    if (!response.ok) {
+      if (response.status === 401) {
+        localStorage.removeItem('admin_token')
+        localStorage.removeItem('admin_email')
+        router.push('/admin/login')
+        return
+      }
+      throw new Error('Errore nel caricamento delle richieste')
+    }
+
+    const data = await response.json()
+    const contacts = data.contacts || []
+
     // Ultime 10 richieste
-    const reqQ = query(
-      collection(db, 'contact_requests'),
-      orderBy('created_at', 'desc'),
-      limit(10)
-    )
-    const reqSnap = await getDocs(reqQ)
-    recentRequests.value = reqSnap.docs.map(d => ({ id: d.id, ...d.data() }))
+    recentRequests.value = contacts.slice(0, 10)
     systemStatus.value.totalRequests = recentRequests.value.length
 
-    // Ultimi 20 log email
-    const logQ = query(
-      collection(db, 'email_logs'),
-      orderBy('sent_at', 'desc'),
-      limit(20)
-    )
-    const logSnap = await getDocs(logQ)
-    emailLogs.value = logSnap.docs.map(d => ({ id: d.id, ...d.data() }))
-    systemStatus.value.logCount = emailLogs.value.length
-    systemStatus.value.emailsSent = emailLogs.value.filter(l => l.email_sent).length
-    systemStatus.value.emailsFailed = emailLogs.value.filter(l => !l.email_sent).length
+    // Email logs non più disponibili (migrati da Firebase)
+    emailLogs.value = []
+    systemStatus.value.logCount = 0
+    systemStatus.value.emailsSent = 0
+    systemStatus.value.emailsFailed = 0
+
   } catch (err: any) {
-    console.error('Errore nel recupero dati Firestore:', err)
+    console.error('Errore nel recupero dati:', err)
   } finally {
     loading.value = false
   }
@@ -60,19 +69,31 @@ async function testEmailSystem() {
   loading.value = true
   testResult.value = 'Invio test in corso...'
   try {
-    // Prepara dati di test
-    const testData = {
-      name: 'Test Sistema Email',
-      surname: 'Debug',
-      email: 'test@ilsorpasso.debug',
-      message: `Test del sistema email automatico — ${new Date().toLocaleString('it-IT')}`,
-      status: 'new',
-      privacy_accepted: true,
-      created_at: serverTimestamp()
+    const token = localStorage.getItem('admin_token')
+    if (!token) {
+      router.push('/admin/login')
+      return
     }
-    // Inserisci in Firestore
-    const docRef = await addDoc(collection(db, 'contact_requests'), testData)
-    testResult.value = `✅ Test inserito con ID: ${docRef.id}
+
+    // Invia richiesta di test tramite API
+    const response = await fetch(`${API_URL}/contact`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        name: 'Test Sistema Email',
+        surname: 'Debug',
+        email: 'test@ilsorpasso.debug',
+        message: `Test del sistema email automatico — ${new Date().toLocaleString('it-IT')}`
+      })
+    })
+
+    if (!response.ok) {
+      throw new Error('Errore nel test del sistema')
+    }
+
+    testResult.value = `✅ Test inviato!
 Se il sistema funziona, Lorenzo riceverà un'email entro 1 minuto.
 Controlla SPAM e tutte le tab di Gmail.`
 
@@ -92,10 +113,11 @@ function goToDashboard() {
 
 async function logout() {
   try {
-    await signOut(auth)
+    localStorage.removeItem('admin_token')
+    localStorage.removeItem('admin_email')
     router.push('/admin/login')
   } catch (err) {
-    console.error('Errore logout Firebase:', err)
+    console.error('Errore logout:', err)
   }
 }
 
@@ -200,7 +222,7 @@ onMounted(checkSystemStatus)
                   {{ request.status.toUpperCase() }}
                 </span>
                 <p class="text-xs text-zinc-500 mt-1">
-                  {{ new Date(request.created_at.seconds * 1000).toLocaleString('it-IT') }}
+                  {{ new Date(request.created_at).toLocaleString('it-IT') }}
                 </p>
               </div>
             </div>
@@ -243,7 +265,7 @@ onMounted(checkSystemStatus)
                 </span>
               </div>
               <span class="text-xs text-zinc-500">
-                {{ new Date(log.sent_at.seconds * 1000).toLocaleString('it-IT') }}
+                {{ new Date(log.sent_at).toLocaleString('it-IT') }}
               </span>
             </div>
             <div v-if="log.error_message" class="mt-2 text-sm text-zinc-400">

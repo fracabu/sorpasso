@@ -1,0 +1,22 @@
+Ciao Lorenzo,
+
+Il modulo di contatto del sito Il Sorpasso non riesce più a inviarti le email. Questo succede perché Google ha disattivato la password precedente per motivi di sicurezza.
+
+Per risolvere il problema, hai bisogno di generare una nuova "Password per app" di Google. È una procedura semplice che richiede 5 minuti.
+
+📎 Ti ho preparato una guida dettagliata con tutti i passaggi: vedi il file allegato "GUIDA_CLIENTE_APP_PASSWORD.md"
+
+In breve, devi:
+
+1. Attivare la Verifica in 2 passaggi su Gmail (se non l'hai già fatto)
+2. Andare su: https://myaccount.google.com/apppasswords
+3. Generare una password per app
+4. Inviarmi la password generata (formato: xxxx xxxx xxxx xxxx)
+
+Una volta ricevuta la password, la configurerò nel sistema e il modulo di contatto ricomincerà a funzionare.
+
+Per sicurezza, dopo che ti confermo che tutto funziona, potrai cancellare il messaggio con la password.
+
+Se hai bisogno di aiuto con questi passaggi, chiamami o fammi sapere e possiamo fare una videochiamata veloce.
+
+Grazie!

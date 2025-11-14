@@ -116,11 +116,11 @@ const sections = computed(() => [
   {
     title: t('footer.services'),
     links: [
-      { text: t('services.rental.categories.vintage.title'), href: '/servizi/auto-epoca' },
-      { text: t('services.rental.categories.special.title'), href: '/servizi/mezzi-speciali' },
-      { text: t('services.rental.categories.sea.title'), href: '/servizi/mare-aria' },
-      { text: t('services.rental.categories.custom.title'), href: '/servizi/personalizzazione' },
-      { text: t('services.rental.categories.wedding.title'), href: '/servizi/auto-matrimoni' }
+      { text: t('services.categories.vintage.title'), href: '/servizi/auto-epoca' },
+      { text: t('services.categories.special.title'), href: '/servizi/mezzi-speciali' },
+      { text: t('services.categories.sea.title'), href: '/servizi/mare-aria' },
+      { text: t('services.categories.custom.title'), href: '/servizi/personalizzazione' },
+      { text: t('services.categories.wedding.title'), href: '/servizi/auto-matrimoni' }
     ]
   },
   {

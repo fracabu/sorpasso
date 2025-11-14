@@ -26,7 +26,7 @@ const features = [
 </script>
 
 <template>
-  <section id="perche-noi" class="bg-black flex items-center">
+  <section id="perche-noi" class="min-h-screen bg-black flex items-center py-24">
     <div class="container">
       <h2 
         class="text-4xl md:text-5xl font-bold mb-16 text-center"
