@@ -112,17 +112,12 @@ const headerLinks = computed(() => [
     <div class="container">
       <nav class="flex items-center justify-between py-4 md:py-6">
         <!-- Logo -->
-        <!-- <button
+        <img
           @click="goToHome"
-          class="flex items-center justify-center hover:opacity-80 transition-opacity h-full"
-        >
-          <img
-            src="/logo_il_sorpasso_testo_destra.png"
-            alt="Il Sorpasso - Picture Vehicles of Rome"
-            class="h-36 w-auto md:h-40 object-contain"
-            style="object-position: center;"
-          />
-        </button> -->
+          src="/logo_il_sorpasso_testo_destra.png"
+          alt="Il Sorpasso - Picture Vehicles of Rome"
+          class="h-32 md:h-36 w-auto cursor-pointer hover:opacity-80 transition-opacity"
+        />
 
         <!-- Desktop Menu -->
         <div class="hidden md:flex items-center space-x-8">

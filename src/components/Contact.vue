@@ -74,11 +74,22 @@ const handleSubmit = async (e: Event) => {
       body: JSON.stringify(contactData)
     })
 
-    const data = await response.json()
-
+    // Verifica prima se la risposta è OK
     if (!response.ok) {
-      throw new Error(data.error || t('contact.form.error'))
+      let errorMessage = t('contact.form.error')
+      try {
+        const data = await response.json()
+        errorMessage = data.error || data.details || errorMessage
+      } catch (jsonError) {
+        // Se non è JSON valido, usa il messaggio di default
+        console.error('Errore parsing JSON dalla risposta:', jsonError)
+        errorMessage = `Errore ${response.status}: ${response.statusText}`
+      }
+      throw new Error(errorMessage)
     }
+
+    // Solo se la risposta è OK, prova a parsare il JSON
+    const data = await response.json()
 
     success.value = true
     // reset del form
