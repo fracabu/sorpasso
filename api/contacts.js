@@ -1,4 +1,5 @@
-import { createClient } from '@vercel/postgres';
+import pkg from 'pg';
+const { Client } = pkg;
 import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
@@ -17,8 +18,11 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const client = createClient({
-    connectionString: process.env.POSTGRES_URL
+  const client = new Client({
+    connectionString: process.env.POSTGRES_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
   });
 
   try {
@@ -51,7 +55,7 @@ export default async function handler(req, res) {
 
   } catch (error) {
     console.error('Errore:', error);
-    await client.end();
+    try { await client.end(); } catch (e) {}
     res.status(500).json({
       error: 'Errore durante il recupero dei contatti',
       details: error.message

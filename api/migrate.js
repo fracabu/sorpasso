@@ -1,4 +1,5 @@
-import { createClient } from '@vercel/postgres';
+import pkg from 'pg';
+const { Client } = pkg;
 
 /**
  * TEMPORARY MIGRATION ENDPOINT
@@ -20,10 +21,12 @@ export default async function handler(req, res) {
   }
 
   console.log('[MIGRATION] Starting database migration...');
-  console.log('[MIGRATION] Using POSTGRES_URL for direct connection...');
 
-  const client = createClient({
-    connectionString: process.env.POSTGRES_URL
+  const client = new Client({
+    connectionString: process.env.POSTGRES_URL,
+    ssl: {
+      rejectUnauthorized: false
+    }
   });
 
   await client.connect();

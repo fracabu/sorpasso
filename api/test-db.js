@@ -3,6 +3,9 @@
  * ⚠️ DELETE AFTER USE
  */
 
+import pkg from 'pg';
+const { Client } = pkg;
+
 export default async function handler(req, res) {
   console.log('[TEST] Starting database connection test...');
 
@@ -18,9 +21,6 @@ export default async function handler(req, res) {
       });
     }
 
-    // Try using node-postgres directly
-    const { Client } = await import('pg');
-
     console.log('[TEST] Creating PostgreSQL client...');
     const client = new Client({
       connectionString: process.env.POSTGRES_URL,
@@ -29,19 +29,20 @@ export default async function handler(req, res) {
       }
     });
 
-    console.log('[TEST] Connecting to database...');
+    console.log('[TEST] Connecting...');
     await client.connect();
 
-    console.log('[TEST] Running simple query...');
-    const result = await client.query('SELECT NOW() as current_time');
+    console.log('[TEST] Running query...');
+    const result = await client.query('SELECT NOW() as current_time, version() as pg_version');
 
-    console.log('[TEST] Query successful');
+    console.log('[TEST] Query successful, closing connection...');
     await client.end();
 
     return res.status(200).json({
       success: true,
       message: 'Database connection successful',
-      serverTime: result.rows[0].current_time
+      serverTime: result.rows[0].current_time,
+      postgresVersion: result.rows[0].pg_version
     });
 
   } catch (error) {
@@ -50,7 +51,8 @@ export default async function handler(req, res) {
       success: false,
       error: error.message,
       stack: error.stack,
-      code: error.code
+      code: error.code,
+      name: error.name
     });
   }
 }

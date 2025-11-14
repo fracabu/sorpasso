@@ -1,4 +1,5 @@
-import { createClient } from '@vercel/postgres';
+import pkg from 'pg';
+const { Client } = pkg;
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
@@ -54,8 +55,11 @@ export default async function handler(req, res) {
     console.log('[API Contact] Tentativo di salvataggio nel database...');
 
     // Salva nel database
-    const client = createClient({
-      connectionString: process.env.POSTGRES_URL
+    const client = new Client({
+      connectionString: process.env.POSTGRES_URL,
+      ssl: {
+        rejectUnauthorized: false
+      }
     });
 
     try {
@@ -68,7 +72,7 @@ export default async function handler(req, res) {
       console.log('[API Contact] Salvataggio nel database completato');
     } catch (dbError) {
       console.error('[API Contact] ERRORE database:', dbError);
-      await client.end();
+      try { await client.end(); } catch (e) {}
       throw new Error(`Errore database: ${dbError.message}`);
     }
 

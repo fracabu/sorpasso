@@ -16,6 +16,7 @@
     "bcryptjs": "^3.0.3",
     "jsonwebtoken": "^9.0.2",
     "nodemailer": "^7.0.10",
+    "pg": "^8.16.3",
     "swiper": "^11.0.5",
     "vue": "^3.3.4",
     "vue-i18n": "^9.9.0",
