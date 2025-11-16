@@ -99,17 +99,21 @@
       <div class="pt-8 border-t border-zinc-800 text-center text-zinc-500">
         <p>&copy; {{ currentYear }} {{ companyInfo.name }}. {{ t('footer.rights') }}</p>
         <p class="mt-3 text-sm">
-          <span class="inline-flex items-center justify-center">
+          <span class="inline-flex items-center justify-center gap-1.5">
             Sviluppato con
-            <i class="fas fa-heart text-accent mx-1.5 text-xs"></i>
+            <i class="fas fa-heart text-accent text-xs"></i>
             da
             <a
               href="https://www.codecraft.it"
               target="_blank"
               rel="noopener noreferrer"
-              class="ml-1.5 text-zinc-400 hover:text-accent transition-colors font-medium"
+              class="inline-flex items-center gap-2 hover:opacity-80 transition-opacity"
             >
-              Codecraft-Studio
+              <img
+                src="/codecraft-logo.png"
+                alt="Codecraft-Studio"
+                class="h-6 w-auto"
+              />
             </a>
           </span>
         </p>
