@@ -112,7 +112,7 @@
               <img
                 src="/codecraft-logo.png"
                 alt="Codecraft-Studio"
-                class="h-6 w-auto"
+                class="h-9 w-auto"
               />
             </a>
           </span>
