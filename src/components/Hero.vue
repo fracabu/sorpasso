@@ -25,7 +25,7 @@ const scrollToContact = () => {
     <!-- Content -->
     <div class="container relative h-full flex items-center">
       <div class="w-full max-w-lg">
-        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase mb-4 break-words">
+        <h1 class="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-black uppercase mb-4 whitespace-nowrap">
           Il Sorpasso
         </h1>
         <p class="text-xl md:text-2xl mb-8">
